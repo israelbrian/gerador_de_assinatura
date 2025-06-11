@@ -17,10 +17,12 @@ andar(obrigatório):
 
 estrutura do projeto:
 assinatura_app/
+|-- app.py              # Nosso código Flask
 ├── static/
-│   ├── assinatura_padrao.PNG
+│   ├── assinatura_padrao.PNG # A imagem de fundo da assinatura
 │   └── styles.css
 ├── templates/
 │   └── index.html
-├── app.py
 └── requirements.txt
+
+|-- Arial.ttf           # O arquivo da fonte que vamos usar
