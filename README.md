@@ -2,9 +2,11 @@
 (front-end) Html, css, javascript 
 (back-end) python, flask, Pillow (PIL),
 pillow imprt Image, ImageFont,ImageDraw
+font: Calibri (Corpo)
+size: 11
+------------------------
 
 receber as seguintes informações da assinatura (via form):
-
 Nome (obrigatório)
 Cargo (obrigatório): 
 Secretaria (obrigatório):
@@ -15,14 +17,17 @@ e-mail no Governo (obrigatório):	nonomonom@nomonomon.mg.gov.br
 Endereço do trabalho (obrigatório):	
 andar(obrigatório):
 
+------------------------
+
 estrutura do projeto:
 assinatura_app/
 |-- app.py              # Nosso código Flask
 ├── static/
 │   ├── assinatura_padrao.PNG # A imagem de fundo da assinatura
-│   └── styles.css
+│   |── styles.css
+│   └── calibri.ttf
 ├── templates/
 │   └── index.html
 └── requirements.txt
 
-|-- Arial.ttf           # O arquivo da fonte que vamos usar
+|-- Calibri (Corpo).ttf           # O arquivo da fonte que vamos usar
