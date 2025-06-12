@@ -42,3 +42,5 @@ def gerar_assinatura():
     
     img.save(f'{nome}.png')
     img.show()
+
+    

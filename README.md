@@ -1,9 +1,10 @@
 # Gerador de assinatura de e-mail
-(front-end) Html, css, javascript 
-(back-end) python, flask, Pillow (PIL),
-pillow imprt Image, ImageFont,ImageDraw
+## (front-end) Html, css, javascript 
+## (back-end) python, flask, Pillow (PIL),
 font: Calibri (Corpo)
 size: 11
+
+Instalar as libs na venv (pip install -r .\requirements.txt)
 ------------------------
 
 receber as seguintes informações da assinatura (via form):
