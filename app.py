@@ -29,8 +29,7 @@ def gerar_assinatura():
     try:
         # Abre o template da imagem
         img = Image.open('static/assinatura_padrao_ses.png').convert("RGBA")
-        largura, altura = img.size
-
+        tamanho_final = 500, 241 # Tamanho que a imagem será salva
         # Carregando as fontes
         # Adicionar o os.path.join no caminho das fontes
         caminho_fonte = "static/arial.ttf" 
@@ -47,7 +46,7 @@ def gerar_assinatura():
         texto_roxo = (131,35,112)  
         texto_roxo_claro = (137,71,118)  
         texto_laranja = (244,148,60)  
-        # Criando camada de desenho sobre a imagem\
+        # Criando camada de desenho sobre a imagem
         desenho = ImageDraw.Draw(img)
 
         # Adicionando os textos na imagem
@@ -59,13 +58,16 @@ def gerar_assinatura():
         desenho.text((cord_email), email, font=fontPadraoG, fill=texto_roxo_claro)
         desenho.text((cord_end), endereco, font=fontPadraoG, fill=texto_roxo_claro)
 
+        #  algoritmo de reamostragem usando o método reside() (resampling) (LANCZOS)
+        img_redimensionada = img.resize(tamanho_final, Image.Resampling.LANCZOS)
+
         # Salva a imagem gerada em memória
         # Usamos io.BytesIO para evitar salvar o arquivo no disco do servidor.
         buffer_memoria = io.BytesIO()
-        img.save(buffer_memoria, format='PNG')
+        img_redimensionada.save(buffer_memoria, format='PNG')
         buffer_memoria.seek(0) # Volta ao início do "arquivo" em memória
 
-        # --- 6. Envia o arquivo para o usuário ---
+        # salvando o arquivo com o nome do usuário ---
         return send_file(
             buffer_memoria,
             mimetype='image/png',
