@@ -28,7 +28,8 @@ def gerar_assinatura():
         largura, altura = img.size
 
         # Carregando as fontes
-        caminho_fonte = "static/calibri.ttf"
+        # Adicionar o os.path.join no caminho das fontes
+        caminho_fonte = "static/calibri.ttf" 
         caminho_fonte_negrito = "static/calibrib.ttf"
         # CRIAR PADRÃO PRO NOME - NEGRITO - 16 - ROXO
         fontNome = ImageFont.truetype(caminho_fonte_negrito, 22)
