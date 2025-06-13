@@ -8,19 +8,20 @@ app = Flask(__name__)
 @app.route('/')
 def gerar_assinatura():
      # Dados para a assinatura (teste)
-    nome = "Rogerio el salvador el shaday"
-    cargo = "Técnico em informática - MGS"
-    secretaria = "ASSESSORIA DE TECNOLOGIA DA INFORMAÇÃO" # Desnecessario, temporario pra teste
-    orgao = "ASSESSORIA DE TECNOLOGIA DA INFORMAÇÃO" # Desnecessario, temporario pra teste
+    nome = "Israel Brian Pimenta Gonçalves Araújo"
+    # cargo = "Técnico em Informática - MGS"
+    cargo = "Estagiario"
+    orgao = "ASSESSORIA DE TECNOLOGIA DA INFORMAÇÃO" 
+    # orgao = "SECRETARIA DE ESTADO DE SAÚDE" 
     telefone_fixo = "(31) 3277-0000"
     telefone_celular = "(31) 99999-9999"  # Este é opcional
     email = "nome.servidor@email.gov.br"
     endereco = "Av. Afonso Pena, 1212"
     andar = "10º andar"
 
-    cord_nome = (50, 76)
-    cord_cargo = (52, 115)
-    cord_secretaria = (52, 145)
+    cord_nome = (55, 78)
+    cord_cargo = (55, 134)
+    cord_orgao = (56, 168)
 
     try:
         # Abre o template da imagem
@@ -29,16 +30,18 @@ def gerar_assinatura():
 
         # Carregando as fontes
         # Adicionar o os.path.join no caminho das fontes
-        caminho_fonte = "static/calibri.ttf" 
-        caminho_fonte_negrito = "static/calibrib.ttf"
+        caminho_fonte = "static/arial.ttf" 
+        caminho_fonte_negrito1 = "static/ariblk.ttf"
+        # caminho_fonte_negrito2 = "static/arialbd.ttf"
+        caminho_fonte_nb = "static/arialnb.ttf"
         # CRIAR PADRÃO PRO NOME - NEGRITO - 16 - ROXO
-        fontNome = ImageFont.truetype(caminho_fonte_negrito, 22)
+        fontNome = ImageFont.truetype(caminho_fonte_negrito1, 22)
         # CRIAR PADRÃO CARGO - NORMAL - 16 - ROXO
         fontCargo = ImageFont.truetype(caminho_fonte, 20)
         # CRIAR PADRÃO ORGAO - 12 - AMARELO - SEMPRE MAIUSCULO
-        fontOrgao = ImageFont.truetype(caminho_fonte_negrito, 18)
-        texto_roxo = (100, 0, 100)  
-        texto_laranja = (246, 120, 40)  
+        fontOrgao = ImageFont.truetype(caminho_fonte_nb, 17)
+        texto_roxo = (131,35,112)  
+        texto_laranja = (244,148,60)  
         # Criando camada de desenho sobre a imagem\
         desenho = ImageDraw.Draw(img)
 
@@ -46,7 +49,7 @@ def gerar_assinatura():
         # O formato é: desenho.text((coordenada_x, coordenada_y), texto, fill=cor, font=fonte)
         desenho.text((cord_nome), nome, font=fontNome, fill=texto_roxo)
         desenho.text((cord_cargo), cargo, font=fontCargo, fill=texto_roxo)
-        desenho.text((cord_secretaria), secretaria, font=fontOrgao, fill=texto_laranja)
+        desenho.text((cord_orgao), orgao, font=fontOrgao, fill=texto_laranja)
 
         # Salva a imagem gerada em memória
         # Usamos io.BytesIO para evitar salvar o arquivo no disco do servidor.
