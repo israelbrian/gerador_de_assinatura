@@ -7,6 +7,7 @@ app = Flask(__name__)
 # Rota principal 
 @app.route('/')
 def gerar_assinatura():
+    
      # Dados para a assinatura (teste)
     nome = "Israel Brian Pimenta Gonçalves Araújo"
     # cargo = "Técnico em Informática - MGS"
@@ -62,7 +63,7 @@ def gerar_assinatura():
         img_redimensionada = img.resize(tamanho_final, Image.Resampling.LANCZOS)
 
         # Salva a imagem gerada em memória
-        # Usamos io.BytesIO para evitar salvar o arquivo no disco do servidor.
+        # io.BytesIO serve salvar o arquivo em memoria do servidor ao inves do disco.
         buffer_memoria = io.BytesIO()
         img_redimensionada.save(buffer_memoria, format='PNG')
         buffer_memoria.seek(0) # Volta ao início do "arquivo" em memória
@@ -71,8 +72,8 @@ def gerar_assinatura():
         return send_file(
             buffer_memoria,
             mimetype='image/png',
-            as_attachment=True,
-            download_name=f'{nome}.png' # Nome do arquivo para download
+            # as_attachment=True,
+            # download_name=f'{nome}.png'
         )
 
     except FileNotFoundError:
