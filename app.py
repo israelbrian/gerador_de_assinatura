@@ -4,6 +4,21 @@ import io
 
 app = Flask(__name__)
 
+# Função para validar os dados do usuário
+def validar_dados(dados_usuario):
+    chaves_obrigatorias = ['nome', 'cargo', 'orgao', 'telefone_fixo', 'email', 'andar']
+    # Verifica se todas as chaves obrigatórias estão presentes
+    for chave in chaves_obrigatorias:
+        if chave not in dados_usuario:
+            return False, f"Campo obrigatório '{chave}' não encontrada nos dados do usuário."
+        # Garantindo que os valores não sejam vazios
+        valor = dados_usuario[chave]
+        if not valor or not str(valor).strip():
+            return False, f"O valor para o campo '{chave}' não foi preenchido ou é inválido!"
+    
+    # Todos os campos foram validados com sucesso
+    return True, "Dados validados com sucesso."
+
 # Rota principal 
 @app.route('/', methods=['POST'])
 def gerar_assinatura():
@@ -12,16 +27,20 @@ def gerar_assinatura():
         dados_usuario = request.get_json()
         if dados_usuario is None:
             return jsonify({"error": "Nenhum dado recebido"}), 400
-    
-        # chaves_obrigatorias = ['nome', 'cargo', 'orgao', 'telefone_fixo', 'email', 'andar']
-        # for chave in chaves_obrigatorias:
-        #     if chave not in dados_usuario[chave]:
-        #         return jsonify({"error": f"Chave obrigatória '{chave}' não encontrada"}), 400
+
+        # Função de validação de dados
+        is_valid, mensagem_erro = validar_dados(dados_usuario)
+        if not is_valid:
+            return jsonify({"erro": mensagem_erro}), 400
+
     except Exception as e:
         return jsonify({"error": f"Erro ao processar os dados: {e}"}), 400
-
+    
+    # Dados do usuário recebidos e validados
     if dados_usuario:
-        return dados_usuario
+        return 'deu certo'
+    
+    
      # Dados para a assinatura (teste)
     # nome = data_user['nome']  # Exemplo
     # cargo = "Técnico em Informática - MGS"
