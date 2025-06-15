@@ -37,8 +37,8 @@ def gerar_assinatura():
         return jsonify({"error": f"Erro ao processar os dados: {e}"}), 400
     
     # Dados do usuário recebidos e validados
-    if dados_usuario:
-        return 'deu certo'
+    
+    return jsonify({"message": "Dados recebidos e validados com sucesso", "dados": dados_usuario}), 200
     
     
      # Dados para a assinatura (teste)
