@@ -52,10 +52,10 @@ Foi adicionado o os.path.join no caminho das fontes / imagem para evitar erros n
 - Criar o frontend onde o usuario possa preencher os campos mencionados em um formulario.
 Esqueleto do front end:
 
-### gerarador de assinatura ses
-    **Informações importantes sobre quais dados preencher e afins.**
+### Gerarador de assinatura ses
+    ```(Informações importantes sobre quais dados preencher e afins).
         <Form>
           <dados a serem preenchidos>
             <button gerar imagem>
               <imagem é exibida na tela>
-                <o botão baixar imagem fica disponivel abaixo da imagem gerada.>
+                <o botão baixar imagem fica disponivel abaixo da imagem gerada.>```
