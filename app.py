@@ -1,23 +1,9 @@
 from flask import Flask, send_file, request, jsonify
 from PIL import Image, ImageDraw, ImageFont
 import io
+from validacao_dados import validar_dados
 
 app = Flask(__name__)
-
-# Função para validar os dados do usuário
-def validar_dados(dados_usuario):
-    chaves_obrigatorias = ['nome', 'cargo', 'orgao', 'telefone_fixo', 'email', 'andar']
-    # Verifica se todas as chaves obrigatórias estão presentes
-    for chave in chaves_obrigatorias:
-        if chave not in dados_usuario:
-            return False, f"Campo obrigatório '{chave}' não encontrada nos dados do usuário."
-        # Garantindo que os valores não sejam vazios
-        valor = dados_usuario[chave]
-        if not valor or not str(valor).strip():
-            return False, f"O valor para o campo '{chave}' não foi preenchido ou é inválido!"
-    
-    # Todos os campos foram validados com sucesso
-    return True, "Dados validados com sucesso."
 
 # Função para gerar a assinatura com os dados do usuário
 def gerar_assinatura(dados_usuario):
