@@ -1,12 +1,10 @@
 # Gerador de assinatura de e-mail
-## (front-end) Html, css, javascript 
-## (back-end) python, flask, Pillow (PIL),
+## (front-end) Html, css, javascript / (back-end) python, flask, Pillow (PIL),
 
-Instalar as libs na venv (pip install -r .\requirements.txt)
 ------------------------
 
-receber as seguintes informações da assinatura (via form):
-Nome (obrigatório)
+eceber as seguintes informações da assinatura (via form):
+```Nome (obrigatório)
 Cargo (obrigatório)
 Secretaria (obrigatório)
 Orgão dentro da Secretaria	
@@ -14,7 +12,7 @@ Telefone Fixo (obrigatório)
 Telefone Celular (opcional)	
 e-mail no Governo (obrigatório)
 Endereço do trabalho (obrigatório)
-andar(obrigatório)
+andar(obrigatório)```
 
 ------------------------
 ## estrutura do projeto:
@@ -59,3 +57,5 @@ Esqueleto do front end:
             <button gerar imagem>
               <imagem é exibida na tela>
                 <o botão baixar imagem fica disponivel abaixo da imagem gerada.>```
+
+Instalar as libs na venv (pip install -r .\requirements.txt)                
