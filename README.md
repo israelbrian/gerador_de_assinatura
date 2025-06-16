@@ -48,9 +48,12 @@ Foi adicionado o os.path.join no caminho das fontes / imagem para evitar erros n
 Todos os passos foram feitos pensando em:
 - Método de organização de código limpo (clean code) e DRY (dont reapeat youself)
 
-- ✅ Backend/ API 1.0 feito ✅
-🎯⌛ Proximo passo:
-- Criar o frontend onde o usuario possa preencher os campos mencionados em um formulario.
+- Backend/ API 1.0 feito ✅
+
+Proximo passo 🎯:
+
+- Criar o frontend onde o usuario possa preencher os campos mencionados em um formulario.  
+
 Esqueleto do front end:
 
     ```(Informações importantes sobre quais dados preencher e afins).
