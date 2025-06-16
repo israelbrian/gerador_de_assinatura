@@ -22,13 +22,13 @@ def validar_dados(dados_usuario):
 # Rota principal 
 @app.route('/', methods=['POST'])
 def gerar_assinatura():
-    # RECEBENDO DADOS DO USUÁRIO VIA POST
+    # RECEBENDO DADOS DO USUÁRIO VIA POST 
     try:        
         dados_usuario = request.get_json()
         if dados_usuario is None:
             return jsonify({"error": "Nenhum dado recebido"}), 400
 
-        # Função de validação de dados
+        # Função de validação de dados 
         is_valid, mensagem_erro = validar_dados(dados_usuario)
         if not is_valid:
             return jsonify({"erro": mensagem_erro}), 400
@@ -36,8 +36,17 @@ def gerar_assinatura():
     except Exception as e:
         return jsonify({"error": f"Erro ao processar os dados: {e}"}), 400
     
-    # Dados do usuário recebidos e validados
-    
+    # Após passar pela verificação dos dados -> Executa...
+    # Manipulação dos dados recebidos (lowercase, upper, capitalize)
+
+    for chave, valor in dados_usuario.items():
+        if isinstance(valor, str):
+            if chave == 'nome' or chave == 'cargo':
+                dados_usuario[chave] = valor.title()  # Capitaliza o nome
+            elif chave == 'orgao':
+                dados_usuario[chave] = valor.upper()            
+            else:
+                dados_usuario[chave] = valor.lower()
     return jsonify({"message": "Dados recebidos e validados com sucesso", "dados": dados_usuario}), 200
     
     
