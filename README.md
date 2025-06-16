@@ -34,13 +34,13 @@ assinatura_app/
 │   └── index.html
 └── requirements.txt**
 
-   Todas as funções do app foram migradas para arquivos externos melhorando a legibilidade do projeto como um todo e de sua logica.
+Todas as funções do app foram migradas para arquivos externos melhorando a legibilidade do projeto como um todo e de sua logica.
     
-    App.py -> focado em receber os dados do user (chamar as funções para 'validar' 'normalizar' 'gerar_assinatura') e devolver a imagem gerada para o front (onde haverá outra manipulações de como a imagem será tratada).
+App.py -> focado em receber os dados do user (chamar as funções para 'validar' 'normalizar' 'gerar_assinatura') e devolver a imagem gerada para o front (onde haverá outra manipulações de como a imagem será tratada).
     
-    Foi feita a declaração de consts para os valores estaticos foi adicionado o os.path para evitar erros de diretorio em diferentes maquinas (exemplo container docker)
-    Foi feita uma organização mais limpa e clara das variáveis, criando consts para valores estaticos e dicts para armazenar as fonts do projeto, cores, coordenadas da imagem e etc.
-    Foi adicionado o os.path.join no caminho das fontes / imagem para evitar erros no deploy no docker.
+Foi feita a declaração de consts para os valores estaticos foi adicionado o os.path para evitar erros de diretorio em diferentes maquinas (exemplo container docker)
+Foi feita uma organização mais limpa e clara das variáveis, criando consts para valores estaticos e dicts para armazenar as fonts do projeto, cores, coordenadas da imagem e etc.
+Foi adicionado o os.path.join no caminho das fontes / imagem para evitar erros no deploy no docker.
 
 - Todos os passos foram feitos pensando em:
 - Método de organização de código limpo (clean code) e DRY (dont reapeat youself)
