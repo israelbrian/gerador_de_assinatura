@@ -18,22 +18,24 @@ andar(obrigatório)
 
 ------------------------
 ## estrutura do projeto:
-`
-assinatura_app/
-|-- app.py                  // Arquivo principal do Flask, apenas com as rotas.
-|-- validacao_dados.py      // Função para validar os dados recebidos
-|-- normalizacao.py         // Função para normalizar os dados(lowercase, upper, captalize)
-|-- gerador_assinatura.py   // Função para gerar a imagem nos padrões pré-determinados
-├── static/
-│   ├── assinatura_padrao.PNG # A imagem de fundo da assinatura
-│   ├── styles.css
-│   ├── arial.ttf 
-│   ├── arialnb.ttf 
-│   └── arialbd.ttf
-├── templates/
-│   └── index.html
-└── requirements.txt
-`
+
+<p>
+    assinatura_app/
+    |-- app.py                  // Arquivo principal do Flask, apenas com as rotas.
+    |-- validacao_dados.py      // Função para validar os dados recebidos
+    |-- normalizacao.py         // Função para normalizar os dados(lowercase, upper, captalize)
+    |-- gerador_assinatura.py   // Função para gerar a imagem nos padrões pré-determinados
+    ├── static/
+    │   ├── assinatura_padrao.PNG # A imagem de fundo da assinatura
+    │   ├── styles.css
+    │   ├── arial.ttf
+    │   ├── arialnb.ttf
+    │   └── arialbd.ttf
+    ├── templates/
+    │   └── index.html
+    └── requirements.txt
+</p>
+
 
 Todas as funções do app foram migradas para arquivos externos melhorando a legibilidade do projeto como um todo e de sua logica.
     
