@@ -56,11 +56,13 @@ Proximo passo 🎯:
 
 Esqueleto do front end:
 
-    ```(Informações importantes sobre quais dados preencher e afins).
+    ```
+    (Informações importantes sobre quais dados preencher e afins).
         <Form>
           <dados a serem preenchidos>
             <button gerar imagem>
               <imagem é exibida na tela>
-                <o botão baixar imagem fica disponivel abaixo da imagem gerada.>```
+                <o botão baixar imagem fica disponivel abaixo da imagem gerada.>
+    ```
 
 Instalar as libs na venv (pip install -r .\requirements.txt)                
