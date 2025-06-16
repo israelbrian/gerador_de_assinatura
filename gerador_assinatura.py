@@ -32,19 +32,12 @@ def gerar_assinatura(dados_usuario):
         texto_laranja = (244,148,60)  
         desenho = ImageDraw.Draw(img) # Criando camada de desenho sobre a imagem
 
-        # Adicionando os textos na imagem
-        desenho.text((cord_nome), dados_usuario['nome'], font=fonteNome, fill=texto_roxo)
-        desenho.text((cord_cargo), dados_usuario['cargo'], font=fontePadraoGG, fill=texto_roxo)
-        desenho.text((cord_orgao), dados_usuario['orgao'], font=fonteOrgao, fill=texto_laranja)
-        desenho.text((cord_tel_fixo), dados_usuario['telefone_fixo'], font=fontePadraoG, fill=texto_roxo)
-        desenho.text((cord_email), dados_usuario['email'], font=fontePadraoG, fill=texto_roxo_claro)
+        desenho.text((cord_nome), dados_usuario.get('nome', ''), font=fonteNome, fill=texto_roxo)
+        desenho.text((cord_cargo), dados_usuario.get('cargo', ''), font=fontePadraoGG, fill=texto_roxo)
+        desenho.text((cord_orgao), dados_usuario.get('orgao', ''), font=fonteOrgao, fill=texto_laranja)
+        desenho.text((cord_tel_fixo), dados_usuario.get('telefone_fixo', ''), font=fontePadraoG, fill=texto_roxo)
+        desenho.text((cord_email), dados_usuario.get('email', ''), font=fontePadraoG, fill=texto_roxo_claro)
         desenho.text((cord_end), endereco, font=fontePadraoG, fill=texto_roxo_claro)
-        # desenho.text((cord_nome), dados_usuario.get('nome', ''), font=fonteNome, fill=texto_roxo)
-        # desenho.text((cord_cargo), dados_usuario.get('cargo', ''), font=fontePadraoGG, fill=texto_roxo)
-        # desenho.text((cord_orgao), dados_usuario.get('orgao', ''), font=fonteOrgao, fill=texto_laranja)
-        # desenho.text((cord_tel_fixo), dados_usuario.get('telefone_fixo', ''), font=fontePadraoG, fill=texto_roxo)
-        # desenho.text((cord_email), dados_usuario.get('email', ''), font=fontePadraoG, fill=texto_roxo_claro)
-        # desenho.text((cord_end), endereco, font=fontePadraoG, fill=texto_roxo_claro)
 
         # Algoritmo de reamostragem usando o método reside() (resampling) (LANCZOS)
         img_redimensionada = img.resize(tamanho_final, Image.Resampling.LANCZOS)
