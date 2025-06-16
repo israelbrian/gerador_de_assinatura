@@ -36,7 +36,15 @@ CORES = {
 }
 
 # Função para gerar a assinatura com os dados recebidos
-def gerar_assinatura(dados_usuario):
+def gerar_assinatura(dados_usuario: dict) -> io.BytesIO:
+    """ 
+    Função para gerar a assinatura institucional da SES-MG com os dados do usuário.
+    Usa o template de imagem padrão e preenche com os dados fornecidos.
+    Parâmetros:
+    dados_usuario (dict): Dicionário contendo os dados do usuário, como nome, cargo, órgão, telefone_fixo, email e andar.
+    parametros pré-definidos e estaticos: coordenadas, cores e fontes(declarados como const no inicio do código).
+    Retorna: buffer_memoria com a imagem gerada em formato PNG como um objeto BytesIO em memória, sem salvar no disco.
+    """
     endereco = f'Cidade Administrativa, Prédio Minas, {dados_usuario['andar']} andar'
 
     try:
