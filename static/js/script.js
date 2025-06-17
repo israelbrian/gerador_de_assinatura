@@ -11,37 +11,45 @@ const orgaoUsuario = document.getElementById('orgaoUsuario')
 const andarUsuario = document.getElementById('andarUsuario')
 
 const url = 'http://127.0.0.1:5000/api'
+let imgUrlBlob = null
 // console.log(dadosUsuario);
 
-function mostrarData(imgUrl) {
+function downloadImage() {
+    if (!imgUrlBlob) return
+
+    const linkImg = document.createElement('a');
+    linkImg.href = imgUrlBlob
+    linkImg.download = 'teste.png';
+    // linkImg.download = `{nomeUsuario}.png`;
+    // Adiciona o link ao corpo do documento, clica nele, e depois remove
+    divImg.appendChild(linkImg);
+    linkImg.click();
+    divImg.removeChild(linkImg);
+    // URL.revokeObjectURL(imgUrl)
+}
+
+function mostrarImg(imgUrl) {
     imgAssPadrao.src = imgUrl;
     imgAssPadrao.alt = 'assinatura_gerada';
     imgTitle.textContent = 'Assinatura gerada com sucesso!';
     divImg.appendChild(imgAssPadrao)
+    divImg.style.display = 'block'; // Garante que a div da imagem esteja visível
 
-    // const imgUrl2 = imgUrl
+    // --- Lógica para criar o botão de download ---
 
-    // downloadImage(imgUrl2); // Chama a função para baixar a imagem
+    // Primeiro, remove qualquer botão de download antigo que possa existir
+    const botaoAntigo = document.getElementById('btnDownload');
+    if (botaoAntigo) {
+        botaoAntigo.remove();
+    }
 
-    //logica de download da imagem
-    // const linkImg = document.createElement('a');
-    // linkImg.href = imgUrl;
-    // linkImg.download = 'assinatura_gerada.png';
-    // divImg.appendChild(linkImg);
-    // linkImg.click();
-    // divImg.removeChild(linkImg);
-    // URL.revokeObjectURL(imgUrl)
+    const botaoDownload = document.createElement('button');
+    botaoDownload.id = 'btnDownload'; // Damos um ID para encontrá-lo e removê-lo depois
+    botaoDownload.textContent = 'Baixar Assinatura';
+    botaoDownload.addEventListener('click', downloadImage); // add event listener 'click' para o botão
+    divImg.appendChild(botaoDownload); // Adiciona o botão de download à divImg, abaixo da img
 }
 
-// function downloadImage(imgUrl2) {
-//     const linkImg = document.createElement('a');
-//     linkImg.href = imgUrl2;
-//     linkImg.download = 'assinatura_gerada.png';
-//     divImg.appendChild(linkImg);
-//     linkImg.click();
-//     // divImg.removeChild(linkImg);
-//     URL.revokeObjectURL(imgUrl2)
-// }
 
 submitForm.addEventListener('submit', async (e) => {
     e.preventDefault()
@@ -60,6 +68,7 @@ const dadosUsuario = {
     //     return;
     // }
     // Envia a mensagem via POST para a API
+
     try {
         const response = await fetch(url, {
             method: 'POST',
@@ -69,18 +78,9 @@ const dadosUsuario = {
 
         const blob = await response.blob();
         const imgUrl = URL.createObjectURL(blob);
-        mostrarData(imgUrl); 
-        // função para baixar a imagem
-        // function downloadImage(imgUrl) {
-        // const linkImg = document.createElement('a');
-        // linkImg.href = imgUrl2;
-        // linkImg.download = 'assinatura_gerada.png';
-        // divImg.appendChild(linkImg);
-        // linkImg.click();
-        // }
-        // divImg.removeChild(linkImg);
-        //  URL.revokeObjectURL(imgUrl2)
-        console.log('Dados enviados com sucesso:', imgUrl, blob);
+        imgUrlBlob = URL.createObjectURL(blob);
+        mostrarImg(imgUrl); 
+        console.log('Dados enviados com sucesso:', imgUrl,);
         // document.write(data)
         
     } catch (error) {
