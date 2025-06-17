@@ -8,7 +8,7 @@ def validar_dados(dados_usuario):
         # Garantindo que os valores não sejam vazios
         valor = dados_usuario[chave]
         if not valor or not str(valor).strip():
-            return False, f"O valor para o campo '{chave}' não foi preenchido ou é inválido!"
+            return False, f"O valor para o campo '{chave}' nao foi preenchido ou é invalido!"
         
     # Todos os campos foram validados com sucesso
     return True, "Dados validados com sucesso."

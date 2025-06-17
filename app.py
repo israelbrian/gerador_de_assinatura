@@ -1,12 +1,16 @@
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, send_file, render_template
 from validacao_dados import validar_dados
 from normalizacao import normallizar_dados
 from gerador_assinatura import gerar_assinatura
 
 app = Flask(__name__)
 
+@app.route('/form') 
+def form():
+    return render_template('index.html')
+
 # Rota principal 
-@app.route('/', methods=['POST'])
+@app.route('/api', methods=['POST'])
 def receber_dados():
     # RECEBENDO DADOS DO USUÁRIO VIA POST 
     try:        
@@ -34,7 +38,7 @@ def receber_dados():
             imagem_gerada,
             mimetype='image/png',
             as_attachment=True,
-            download_name=f"assinatura_{dados_usuario['nome'].replace(' ', '_')}.png"
+            download_name=f"assinatura_{dados_usuario['nome']}.png"
         )
 
     except Exception as e:

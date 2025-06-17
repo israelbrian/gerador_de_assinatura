@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerador de assinatura SES</title>
+    <link rel="stylesheet" href="../static/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Gerador de assinatura SES</h1>
+      <p>Bem vindo! Gere a sua assinatura institucional aqui!</p>
+    </header>
+
+    <main class="container">
+      <div class="div-form">
+        <form action="/submit" method="POST" id="submitForm">
+          <div>
+            <label required>Nome:</label>
+            <input type="text" id="nomeUsuario" placeholder="Preencha o seu nome completo."/>
+          </div>
+
+          <div>
+            <label required>Cargo:</label>
+            <input type="text" id="cargoUsuario" placeholder="Preencha o seu cargo. Ex: MGS, Estagio"/>
+          </div>
+
+          <div>
+            <label required>Orgao:</label>
+            <input type="text" id="orgaoUsuario" placeholder="Preencha o orgao. Ex: ASSESSORIA ..."/>
+          </div>
+
+          <div>
+            <label required>Telefone fixo:</label>
+            <input type="tel" id="telFixoUsuario" placeholder="Preencha o seu telefone fixo da SES. Ex: 31 3106-0000"/>
+          </div>
+
+          <div>
+            <label required>E-mail (SES):</label>
+            <input type="email" id="emailUsuario" placeholder="Preencha o seu email institucional. Ex: nononon@saude.mg.gov.br"/>
+          </div>
+
+          <div>
+            <label required>Andar:</label>
+            <input type="text" id="andarUsuario" placeholder="Preencha o andar onde reside. Ex: 13°"/>
+          </div>
+
+          <button type="submit"> 
+            Gerar assinatura
+          </button>
+        </form>
+
+      </div>
+
+      <div class="div-img" id="divImg">
+        <h1>Exemplo de assinatura</h1>
+        <img src="../static/assinatura_padrao_ses.PNG" alt="img-assinatura" id="imgAssinaturaPadrao"/>
+        <!-- <img src="../assinatura exemplo.jpeg" alt="img-assinatura" id="imgAssinaturaPadrao"/> -->
+      </div>
+    </main>
+
+    <script src="../static/js/script.js"></script>
+  </body>
+</html>

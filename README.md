@@ -4,14 +4,13 @@
 ------------------------
 
 Receber as seguintes informações da assinatura (via form):
-```Nome (obrigatório)
+```
+Nome (obrigatório)
 Cargo (obrigatório)
-Secretaria (obrigatório)
 Orgão dentro da Secretaria	
 Telefone Fixo (obrigatório)
 Telefone Celular (opcional)	
 e-mail no Governo (obrigatório)
-Endereço do trabalho (obrigatório)
 andar(obrigatório)
 ```
 
