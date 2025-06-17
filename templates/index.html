@@ -16,33 +16,33 @@
       <div class="div-form">
         <form action="/submit" method="POST" id="submitForm">
           <div>
-            <label required>Nome:</label>
-            <input type="text" id="nomeUsuario" placeholder="Preencha o seu nome completo."/>
+            <label>Nome:</label>
+            <input type="text" id="nomeUsuario" placeholder="Preencha o seu nome completo." required/>
           </div>
 
           <div>
-            <label required>Cargo:</label>
-            <input type="text" id="cargoUsuario" placeholder="Preencha o seu cargo. Ex: MGS, Estagio"/>
+            <label>Cargo:</label>
+            <input type="text" id="cargoUsuario" placeholder="Preencha o seu cargo. Ex: MGS, Estagio" required/>
           </div>
 
           <div>
-            <label required>Orgao:</label>
-            <input type="text" id="orgaoUsuario" placeholder="Preencha o orgao. Ex: ASSESSORIA ..."/>
+            <label>Orgao:</label>
+            <input type="text" id="orgaoUsuario" placeholder="Preencha o orgao. Ex: ASSESSORIA ..." required/>
           </div>
 
           <div>
-            <label required>Telefone fixo:</label>
-            <input type="tel" id="telFixoUsuario" placeholder="Preencha o seu telefone fixo da SES. Ex: 31 3106-0000"/>
+            <label>Telefone fixo:</label>
+            <input type="tel" id="telFixoUsuario" placeholder="Preencha o seu telefone fixo da SES. Ex: 31 3106-0000" required/>
           </div>
 
           <div>
-            <label required>E-mail (SES):</label>
-            <input type="email" id="emailUsuario" placeholder="Preencha o seu email institucional. Ex: nononon@saude.mg.gov.br"/>
+            <label>E-mail (SES):</label>
+            <input type="email" id="emailUsuario" placeholder="Preencha o seu email institucional. Ex: nononon@saude.mg.gov.br" required/>
           </div>
 
           <div>
-            <label required>Andar:</label>
-            <input type="text" id="andarUsuario" placeholder="Preencha o andar onde reside. Ex: 13°"/>
+            <label>Andar:</label>
+            <input type="text" id="andarUsuario" placeholder="Preencha o andar onde reside. Ex: 13°" required/>
           </div>
 
           <button type="submit"> 
@@ -53,9 +53,11 @@
       </div>
 
       <div class="div-img" id="divImg">
-        <h1>Exemplo de assinatura</h1>
-        <img src="../static/assinatura_padrao_ses.PNG" alt="img-assinatura" id="imgAssinaturaPadrao"/>
-        <!-- <img src="../assinatura exemplo.jpeg" alt="img-assinatura" id="imgAssinaturaPadrao"/> -->
+        <h1 id="imgTitle">Exemplo de assinatura</h1>
+        <img src="../static/assinatura_padrao_ses.PNG" alt="img-assinatura" id="imgAssPadrao"/>
+        <button type="button" id="btnDownload" class="hidden">
+            Baixar
+        </button>
       </div>
     </main>
 

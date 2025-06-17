@@ -1,5 +1,7 @@
 const submitForm = document.getElementById('submitForm');
 const divImg = document.getElementById('divImg');
+const imgAssPadrao = document.getElementById('imgAssPadrao');
+const imgTitle = document.getElementById('imgTitle');
 
 const nomeUsuario = document.getElementById('nomeUsuario')
 const cargoUsuario = document.getElementById('cargoUsuario')
@@ -12,13 +14,34 @@ const url = 'http://127.0.0.1:5000/api'
 // console.log(dadosUsuario);
 
 function mostrarData(imgUrl) {
-    divImg.innerHTML = '' // Limpa o conteúdo anterior
-    const dataImg = document.createElement('img');
-    // dataImg.src = `data:image/png;base64,${imgUrl}`;
-    dataImg.src = imgUrl;
-    dataImg.alt = 'assinatura_gerada';
-    divImg.appendChild(dataImg)
+    imgAssPadrao.src = imgUrl;
+    imgAssPadrao.alt = 'assinatura_gerada';
+    imgTitle.textContent = 'Assinatura gerada com sucesso!';
+    divImg.appendChild(imgAssPadrao)
+
+    // const imgUrl2 = imgUrl
+
+    // downloadImage(imgUrl2); // Chama a função para baixar a imagem
+
+    //logica de download da imagem
+    // const linkImg = document.createElement('a');
+    // linkImg.href = imgUrl;
+    // linkImg.download = 'assinatura_gerada.png';
+    // divImg.appendChild(linkImg);
+    // linkImg.click();
+    // divImg.removeChild(linkImg);
+    // URL.revokeObjectURL(imgUrl)
 }
+
+// function downloadImage(imgUrl2) {
+//     const linkImg = document.createElement('a');
+//     linkImg.href = imgUrl2;
+//     linkImg.download = 'assinatura_gerada.png';
+//     divImg.appendChild(linkImg);
+//     linkImg.click();
+//     // divImg.removeChild(linkImg);
+//     URL.revokeObjectURL(imgUrl2)
+// }
 
 submitForm.addEventListener('submit', async (e) => {
     e.preventDefault()
@@ -47,7 +70,17 @@ const dadosUsuario = {
         const blob = await response.blob();
         const imgUrl = URL.createObjectURL(blob);
         mostrarData(imgUrl); 
-        console.log('Dados enviados com sucesso:', imgUrl);
+        // função para baixar a imagem
+        // function downloadImage(imgUrl) {
+        // const linkImg = document.createElement('a');
+        // linkImg.href = imgUrl2;
+        // linkImg.download = 'assinatura_gerada.png';
+        // divImg.appendChild(linkImg);
+        // linkImg.click();
+        // }
+        // divImg.removeChild(linkImg);
+        //  URL.revokeObjectURL(imgUrl2)
+        console.log('Dados enviados com sucesso:', imgUrl, blob);
         // document.write(data)
         
     } catch (error) {
