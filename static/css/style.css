@@ -16,31 +16,31 @@ header {
     gap: 30px;
 }
 
-.div-form, .div-img {
+.divForm, .div-img {
     width: 50%;
     /* padding: 20px; */
     box-sizing: border-box;
 }
 
 /* Estilos adicionais para o formulário (opcional) */
-.div-form form {
+.divForm form {
   /* display: flex; */
   flex-direction: column;
 }
 
-.div-form input {
+.divForm input {
   margin-bottom: 10px;
   padding: 10px;
   width: 100%;
 }
 
-.div-form label {
+.divForm label {
   margin-bottom: 10px;
   padding: 8px;
   /* margin-right: 20px; */
 }
 
-.div-form button {
+.divForm button {
   padding: 10px;
   background-color: #fffb2b;
   border: black 1px solid;

@@ -2,7 +2,8 @@
 def normallizar_dados(dados_usuario):
     for chave, valor in dados_usuario.items():
         if isinstance(valor, str):
-            if chave == 'nome' or chave == 'cargo':
+            # if chave == 'nome' or chave == 'cargo':
+            if chave == 'nome':
                 dados_usuario[chave] = valor.title()  # Capitaliza o nome
             elif chave == 'orgao':
                 dados_usuario[chave] = valor.upper()            

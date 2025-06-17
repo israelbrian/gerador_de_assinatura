@@ -3,23 +3,36 @@ const divImg = document.getElementById('divImg');
 const imgAssPadrao = document.getElementById('imgAssPadrao');
 const imgTitle = document.getElementById('imgTitle');
 
-const nomeUsuario = document.getElementById('nomeUsuario')
-const cargoUsuario = document.getElementById('cargoUsuario')
-const telFixoUsuario = document.getElementById('telFixoUsuario')
-const emailUsuario = document.getElementById('emailUsuario')
-const orgaoUsuario = document.getElementById('orgaoUsuario')
-const andarUsuario = document.getElementById('andarUsuario')
+// const nomeUsuario = document.getElementById('nomeUsuario')
+// const cargoUsuario = document.getElementById('cargoUsuario')
+// const telFixoUsuario = document.getElementById('telFixoUsuario')
+// const emailUsuario = document.getElementById('emailUsuario')
+// const orgaoUsuario = document.getElementById('orgaoUsuario')
+// const andarUsuario = document.getElementById('andarUsuario')
 
 const url = 'http://127.0.0.1:5000/api'
 let imgUrlBlob = null
 // console.log(dadosUsuario);
+
+// submitForm.addEventListener('click', function() {
+//     document.getElementById('submitForm').reset()
+// }) 
+
+// function limparForm() {
+//     document.getElementById('submitForm').reset()
+//     document.getElementById('nomeUsuario').value = ''
+//     Criar alguma logica que limpe os campos do formulario :
+// }
 
 function downloadImage() {
     if (!imgUrlBlob) return
 
     const linkImg = document.createElement('a');
     linkImg.href = imgUrlBlob
-    linkImg.download = 'teste.png';
+    const nomeUsuario = document.getElementById('nomeUsuario').value
+    // nomeUsuario.toLowerCase().replace(/ /g, '_');
+    const nomeArquivo = `${nomeUsuario}.png`;
+    linkImg.download = `${nomeArquivo}`;
     // linkImg.download = `{nomeUsuario}.png`;
     // Adiciona o link ao corpo do documento, clica nele, e depois remove
     divImg.appendChild(linkImg);
@@ -35,8 +48,6 @@ function mostrarImg(imgUrl) {
     divImg.appendChild(imgAssPadrao)
     divImg.style.display = 'block'; // Garante que a div da imagem esteja visível
 
-    // --- Lógica para criar o botão de download ---
-
     // Primeiro, remove qualquer botão de download antigo que possa existir
     const botaoAntigo = document.getElementById('btnDownload');
     if (botaoAntigo) {
@@ -49,7 +60,6 @@ function mostrarImg(imgUrl) {
     botaoDownload.addEventListener('click', downloadImage); // add event listener 'click' para o botão
     divImg.appendChild(botaoDownload); // Adiciona o botão de download à divImg, abaixo da img
 }
-
 
 submitForm.addEventListener('submit', async (e) => {
     e.preventDefault()
@@ -88,3 +98,4 @@ const dadosUsuario = {
         // console.log('Erro ao enviar os dados. Tente novamente mais tarde.');
     }
 })
+

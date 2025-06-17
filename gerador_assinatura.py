@@ -13,9 +13,9 @@ FONTES = {
 }
 
 FONTES_PIL = {
-    'nome': ImageFont.truetype(FONTES['negrito'], 22),
-    'padraoG': ImageFont.truetype(FONTES['padrao'], 20),
-    'padraoGG': ImageFont.truetype(FONTES['padrao'], 22),
+    'nome': ImageFont.truetype(FONTES['negrito'], 34),
+    'padraoGG': ImageFont.truetype(FONTES['padrao'], 24),
+    'padraoG': ImageFont.truetype(FONTES['padrao'], 22),
     'orgao': ImageFont.truetype(FONTES['semicond'], 17),
 }
 
