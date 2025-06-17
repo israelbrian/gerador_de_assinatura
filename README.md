@@ -48,10 +48,10 @@ Todos os passos foram feitos pensando em:
 - Método de organização de código limpo (clean code) e DRY (dont reapeat youself)
 
 - Backend/ API 1.0 feito ✅
+- Criar o frontend onde o usuario possa preencher os campos mencionados em um formulario e ter o retorno da imagem na tela. ✅  
 
 Proximo passo 🎯:
-
-- Criar o frontend onde o usuario possa preencher os campos mencionados em um formulario.  
+- Estilizar o formulario com tailwind.
 
 Esqueleto do front end:
 
