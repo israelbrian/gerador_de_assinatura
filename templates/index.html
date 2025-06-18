@@ -32,7 +32,7 @@
           action="/submit"
           method="POST"
           id="submitForm"
-          class="bg-gray-600 border-gray-500"
+          class="bg-gray-600 border-solid border-2 border-gray-500 rounded-md"
         >
           <div class="p-3">
             <label class="text-5x1 font-medium text-white">Nome:</label>
@@ -108,7 +108,7 @@
           <div class="flex items-center justify-center">
             <button
               type="submit"
-              class="bg-black text-white p-3 rounded-md mb-1 mt-1 hover:bg-white hover:text-black"
+              class="bg-black text-white p-3 rounded-md mb-2 mt-1 hover:bg-white hover:text-black"
             >
               Gerar assinatura
             </button>
@@ -179,7 +179,11 @@
       
     </section> -->
 
-    <footer class="text-center text-white text-5x1 p-7 mt-2 bg-gradient-to-r from-orange-400 to-orange-500  fixed bottom-0 left-0 w-full">Israel Brian ©</footer>
+    <!-- color footer  from-orange-400 to-orange-500  -->
+    <footer 
+    class="text-center text-gray-200 text-3xl p-7 mt-2 bg-gradient-to-r fixed bottom-0 left-0 w-full">
+      Israel Brian ©
+    </footer>
       
     <script src="{{ url_for('static', filename='js/script.js')}}"></script>
     <!-- <script src="../static/js/script.js"></script> -->
