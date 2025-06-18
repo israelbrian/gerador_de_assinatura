@@ -1,5 +1,6 @@
 const submitForm = document.getElementById('submitForm');
 const divImg = document.getElementById('divImg');
+const div_img = document.getElementById('div-img');
 const imgAssPadrao = document.getElementById('imgAssPadrao');
 const imgTitle = document.getElementById('imgTitle');
 
@@ -45,8 +46,8 @@ function mostrarImg(imgUrl) {
     imgAssPadrao.src = imgUrl;
     imgAssPadrao.alt = 'assinatura_gerada';
     imgTitle.textContent = 'Assinatura gerada com sucesso!';
-    divImg.appendChild(imgAssPadrao)
-    divImg.style.display = 'block'; // Garante que a div da imagem esteja visível
+    div_img.appendChild(imgAssPadrao)
+    // div_img.style.display = 'block'; // Garante que a div da imagem esteja visível
 
     // Primeiro, remove qualquer botão de download antigo que possa existir
     const botaoAntigo = document.getElementById('btnDownload');

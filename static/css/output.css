@@ -1126,6 +1126,14 @@ video {
   --tw-gradient-to: #ea580c var(--tw-gradient-to-position);
 }
 
+.to-orange-300 {
+  --tw-gradient-to: #fdba74 var(--tw-gradient-to-position);
+}
+
+.to-orange-500 {
+  --tw-gradient-to: #f97316 var(--tw-gradient-to-position);
+}
+
 .bg-center {
   background-position: center;
 }

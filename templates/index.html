@@ -105,25 +105,31 @@
             />
           </div>
 
-          <button
-            type="submit"
-            class="bg-black text-white p-3 rounded-md ml-3 mb-1 mt-1 hover:bg-white hover:text-black"
-          >
-            Gerar assinatura
-          </button>
+          <div class="flex items-center justify-center">
+            <button
+              type="submit"
+              class="bg-black text-white p-3 rounded-md mb-1 mt-1 hover:bg-white hover:text-black"
+            >
+              Gerar assinatura
+            </button>
+          </div>
           
         </form>
       </div>
 
       <div id="divImg" class="div-img bg-white text-center p-5 col-span-5 rounded-md">
-        <h2 id="imgTitle" class="text-4xl p-3 mb-3">Exemplo de assinatura</h2>
-        <img
-          src="../static/assinatura_exemplo_ses.PNG"
-          alt="img-assinatura"
-          id="imgAssPadrao"
-          style="width: 600px"
-          class="items-center"
-        />
+
+        <h2 id="imgTitle" class="text-4xl">Exemplo de assinatura</h2>
+
+        <div id="div-img" class="flex items-center justify-center">
+          <img
+            src="../static/assinatura_exemplo_ses.PNG"
+            alt="img-assinatura"
+            id="imgAssPadrao"
+            style="width: 600px"
+            class="mt-5"
+          />
+        </div>
       </div>
 
       <!-- como preencher -->
@@ -173,7 +179,7 @@
       
     </section> -->
 
-    <footer class="text-center text-white text-5x1 p-7 mt-2 bg-gradient-to-r from-orange-400 to-orange-600  fixed bottom-0 left-0 w-full">Israel Brian ©</footer>
+    <footer class="text-center text-white text-5x1 p-7 mt-2 bg-gradient-to-r from-orange-400 to-orange-500  fixed bottom-0 left-0 w-full">Israel Brian ©</footer>
       
     <script src="{{ url_for('static', filename='js/script.js')}}"></script>
     <!-- <script src="../static/js/script.js"></script> -->
