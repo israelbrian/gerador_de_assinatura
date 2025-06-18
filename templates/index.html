@@ -12,7 +12,7 @@
     <!-- <link rel="stylesheet" href="../static/css/style.css" /> -->
   </head>
   <body>
-    <header class="bg-blue-500 p-10">
+    <header class="bg-violet-800 p-10">
       <h1 class="text-white text-5xl font-bold mb-5 mt-5 text-center">
         Gerador de assinatura SES
       </h1>
@@ -21,18 +21,18 @@
       </h2>
     </header>
 
-    <div class="bg-gray-200 p-5 -ml-10">
+    <div class="p-5 -ml-10">
       a
     </div>
 
-    <main class="grid grid-cols-12 gap-5 bg-gray-200">
+    <main class="grid grid-cols-12 gap-10 ">
 
-      <div class="divForm bg-gray-600 p-5 col-start-2 col-span-5">
+      <div class="divForm bg-gray-600 p-5 col-start-2 col-span-5 rounded-md">
         <form
           action="/submit"
           method="POST"
           id="submitForm"
-          class="bg-gray-600 "
+          class="bg-gray-600 border-gray-500"
         >
           <div class="p-3">
             <label class="text-5x1 font-medium text-white">Nome:</label>
@@ -107,7 +107,7 @@
 
           <button
             type="submit"
-            class="bg-black text-white p-3 rounded-md ml-3 mb-1 mt-1"
+            class="bg-black text-white p-3 rounded-md ml-3 mb-1 mt-1 hover:bg-white hover:text-black"
           >
             Gerar assinatura
           </button>
@@ -115,8 +115,8 @@
         </form>
       </div>
 
-      <div class="div-img bg-white text-center p-5 col-span-5" id="divImg">
-        <h2 id="imgTitle" class="text-4xl p-3">Exemplo de assinatura</h2>
+      <div id="divImg" class="div-img bg-white text-center p-5 col-span-5 rounded-md">
+        <h2 id="imgTitle" class="text-4xl p-3 mb-3">Exemplo de assinatura</h2>
         <img
           src="../static/assinatura_exemplo_ses.PNG"
           alt="img-assinatura"
@@ -165,16 +165,16 @@
       </div> -->
     </main>
 
-    <div class="bg-gray-200 p-5 -ml-10">
+    <!-- <div class="p-5 -ml-10">
       a
-    </div>
+    </div> -->
 
     <!-- <section class="grid grid-cols-12 gap-4">
       
     </section> -->
 
-    <footer class="text-center text-5x1 p-5 bg-orange-400">footer</footer>
-
+    <footer class="text-center text-white text-5x1 p-7 mt-2 bg-gradient-to-r from-orange-400 to-orange-600  fixed bottom-0 left-0 w-full">Israel Brian ©</footer>
+      
     <script src="{{ url_for('static', filename='js/script.js')}}"></script>
     <!-- <script src="../static/js/script.js"></script> -->
   </body>
