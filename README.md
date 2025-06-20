@@ -1,4 +1,4 @@
-# Gerador de assinatura de e-mail teste
+# Gerador de assinatura de e-mail
 `(front-end) Html, css, javascript / (back-end) python, flask, Pillow (PIL),`
 
 ------------------------
