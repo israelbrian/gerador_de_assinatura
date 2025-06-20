@@ -49,9 +49,21 @@ Todos os passos foram feitos pensando em:
 
 - Backend/ API 1.0 feito ✅
 - Criar o frontend onde o usuario possa preencher os campos mencionados em um formulario e ter o retorno da imagem na tela. ✅  
+- Estilizar o formulario com tailwind. ✅ 
+
+```
+comando para iniciar a compilação do tailwindcss:  
+npx tailwindcss -i ./src/input.css -o ./static/css/output.css --watch  
+comando para fazer antes do deploy no docker:  
+npx tailwindcss -i ./src/input.css -o ./static/css/output.css --minify
+
+```
 
 Proximo passo 🎯:
-- Estilizar o formulario com tailwind.
+
+- Criar um estilo mais atraente, versatil e robusto.
+- Deploy em um container docker.
+
 
 Esqueleto do front end:
 

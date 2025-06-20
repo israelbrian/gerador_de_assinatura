@@ -11,8 +11,9 @@
     <!-- <link rel="stylesheet" href="../static/css/output.css" /> -->
     <!-- <link rel="stylesheet" href="../static/css/style.css" /> -->
   </head>
-  <body>
-    <header class="bg-violet-800 p-10">
+  <body class="bg-gradient-to-br from-gray-900 via-gray-700 to-gray-900 h-screen">
+    <!-- <header class="bg-violet-800 p-10"> -->
+    <header class="p-10 font-mono">
       <h1 class="text-white text-5xl font-bold mb-5 mt-5 text-center">
         Gerador de assinatura SES
       </h1>
@@ -21,11 +22,11 @@
       </h2>
     </header>
 
-    <div class="p-5 -ml-10">
+    <!-- <div class="p-5 -ml-10">
       a
-    </div>
+    </div> -->
 
-    <main class="grid grid-cols-12 gap-10 ">
+    <main class="grid grid-cols-12 gap-10 p-8">
 
       <div class="divForm bg-gray-600 p-5 col-start-2 col-span-5 rounded-md">
         <form
@@ -34,7 +35,7 @@
           id="submitForm"
           class="bg-gray-600 border-solid border-2 border-gray-500 rounded-md"
         >
-          <div class="p-3">
+          <div class="p-3 mt-2">
             <label class="text-5x1 font-medium text-white">Nome:</label>
             <input
               type="text"
@@ -68,8 +69,8 @@
           </div>
 
           <div class="p-3">
-            <label class="text-4x1 font-medium text-white"
-              >Telfixo:</label
+            <label class="text-4x1 font-medium text-white ml-2 mr-4"
+              >Tel:</label
             >
             <input
               type="tel"
@@ -108,7 +109,7 @@
           <div class="flex items-center justify-center">
             <button
               type="submit"
-              class="bg-black text-white p-3 rounded-md mb-2 mt-1 hover:bg-white hover:text-black"
+              class="bg-gray-800 border-solid border-2 border-gray-500 text-white p-3 rounded-md mb-2 mt-1 hover:bg-white hover:text-black"
             >
               Gerar assinatura
             </button>
@@ -117,18 +118,19 @@
         </form>
       </div>
 
-      <div id="divImg" class="div-img bg-white text-center p-5 col-span-5 rounded-md">
+      <div id="divImg" class="div-img bg-gray-200 text-gray-600 text-center p-5 col-span-5 rounded-md">
 
-        <h2 id="imgTitle" class="text-4xl">Exemplo de assinatura</h2>
-
-        <div id="div-img" class="flex items-center justify-center">
-          <img
-            src="../static/assinatura_exemplo_ses.PNG"
-            alt="img-assinatura"
-            id="imgAssPadrao"
-            style="width: 600px"
-            class="mt-5"
-          />
+        <div class="border-solid border-2 border-gray-600 rounded-md pb-7">
+          <h2 id="imgTitle" class="text-4xl p-4">Exemplo de assinatura</h2>
+          <div id="div-img" class="flex items-center justify-center">
+            <img
+              src="../static/assinatura_exemplo_ses.PNG"
+              alt="img-assinatura"
+              id="imgAssPadrao"
+              style="width: 600px"
+              class="mt-5"
+            />
+          </div>
         </div>
       </div>
 
@@ -169,6 +171,7 @@
           fuga.
         </p>
       </div> -->
+
     </main>
 
     <!-- <div class="p-5 -ml-10">
@@ -181,7 +184,7 @@
 
     <!-- color footer  from-orange-400 to-orange-500  -->
     <footer 
-    class="text-center text-gray-200 text-3xl p-7 mt-2 bg-gradient-to-r fixed bottom-0 left-0 w-full">
+    class="text-center text-gray-200 text-2xl p-5 fixed bottom-0 left-0 w-full font-mono">
       Desenvolvido por Israel Brian ©
     </footer>
       
