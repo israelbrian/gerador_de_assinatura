@@ -5,7 +5,18 @@ module.exports = {
     "./static/js/**/*.js"   // Aponta para todos os arquivos .js dentro da pasta static/js
   ],
   theme: {
-    extend: {},
+    extend: {
+       colors: {
+       'violet-blue': '#3c67f0',
+       'violet-dark': '#1913ff',
+    },
+     fontFamily: {
+       fontFamily: {
+      sans: ['Graphik', 'sans-serif'],
+      serif: ['Merriweather', 'serif'],
+    },
+    }
+    },
   },
   plugins: [],
 }
