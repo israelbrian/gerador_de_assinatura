@@ -57,7 +57,7 @@ function mostrarImg(imgUrl) {
 
     const botaoDownload = document.createElement('button');
     botaoDownload.id = 'btnDownload'; // Damos um ID para encontrá-lo e removê-lo depois
-    botaoDownload.classList = 'bg-black text-white p-3 rounded-md ml-3 mb-1 mt-1 hover:bg-white hover:text-black'
+    botaoDownload.classList = 'bg-gray-900 text-white p-3 rounded-md my-4 hover:bg-neutral-800'
     botaoDownload.textContent = 'Baixar Assinatura';
     botaoDownload.addEventListener('click', downloadImage); // add event listener 'click' para o botão
     divImg.appendChild(botaoDownload); // Adiciona o botão de download à divImg, abaixo da img
