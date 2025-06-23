@@ -35,7 +35,8 @@ def receber_dados():
         )
 
     except Exception as e:
-        return jsonify({"error": f"Erro ao gerar a assinatura: {e}"}), 500
+        app.logger.error(f"Ocorreu um erro inesperado: {e}")
+        return jsonify({"error": "Ocorreu um erro interno no servidor. Por favor, contate o suporte."}), 500
 
 if __name__ == '__main__':
     app.run(debug=False)
