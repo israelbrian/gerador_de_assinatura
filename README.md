@@ -1,6 +1,7 @@
 # Gerador de assinatura de e-mail
 `(front-end) Html, css, javascript / (back-end) python, flask, Pillow (PIL),`
-`Instalar as libs na venv (pip install -r .\requirements.txt)`
+
+Instalar as libs na venv (pip install -r .\requirements.txt)
 ------------------------
 
 Receber as seguintes informações da assinatura (via form):
