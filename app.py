@@ -38,4 +38,4 @@ def receber_dados():
         return jsonify({"error": f"Erro ao gerar a assinatura: {e}"}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
