@@ -2,7 +2,6 @@ from PIL import Image, ImageDraw, ImageFont
 import io
 import os
 
-# CONFIGURAÇÕES E CONSTANTES (Organização)
 DIRETORIO_BASE = os.path.dirname(os.path.abspath(__file__))
 STATIC = os.path.join(DIRETORIO_BASE, 'static')
 IMG_ASS_PADRAO = os.path.join(STATIC, 'assinatura_padrao_ses.png') # Junta o diretorio base com a pasta static e o nome do arquivo
@@ -35,22 +34,21 @@ CORES = {
     'laranja': (244, 148, 60)
 }
 
-# Função para gerar a assinatura com os dados recebidos
 def gerar_assinatura(dados_usuario: dict) -> io.BytesIO:
     """ 
     Função para gerar a assinatura institucional da SES-MG com os dados do usuário.
     Usa o template de imagem padrão e preenche com os dados fornecidos.
     Parâmetros:
     dados_usuario (dict): Dicionário contendo os dados do usuário, como nome, cargo, órgão, telefone_fixo, email e andar.
-    parametros pré-definidos e estaticos: coordenadas, cores e fontes(declarados como const no inicio do código).
-    Retorna: buffer_memoria com a imagem gerada em formato PNG como um objeto BytesIO em memória, sem salvar no disco.
+    Parametros pré-definidos e estaticos: coordenadas, cores e fontes(declarados como const no inicio do código).
+    Retorno: buffer_memoria com a imagem gerada em formato PNG como um objeto BytesIO em memória, sem salvar no disco.
     """
     endereco = f'Cidade Administrativa, Prédio Minas, {dados_usuario['andar']} andar'
 
     try:
-        img = Image.open(IMG_ASS_PADRAO).convert("RGBA") # Abre o template da imagem
-        desenho = ImageDraw.Draw(img) # Criando camada de desenho sobre a imagem
-        # Desenhando sobre a img com os dados do user, usando os parametros estaticos armazenados em dicts 
+        img = Image.open(IMG_ASS_PADRAO).convert("RGBA")
+        desenho = ImageDraw.Draw(img)
+
         desenho.text((COORDS['nome']), dados_usuario.get('nome', ''), font=FONTES_PIL['nome'], fill=CORES['roxo'])
         desenho.text((COORDS['cargo']), dados_usuario.get('cargo', ''), font=FONTES_PIL['padraoGG'], fill=CORES['roxo'])
         desenho.text((COORDS['orgao']), dados_usuario.get('orgao', ''), font=FONTES_PIL['orgao'], fill=CORES['laranja'])
@@ -60,11 +58,11 @@ def gerar_assinatura(dados_usuario: dict) -> io.BytesIO:
 
         img_redimensionada = img.resize(TAMANHO_FINAL, Image.Resampling.LANCZOS)
 
-        buffer_memoria = io.BytesIO() # salvando o arquivo em memoria do servidor ao inves do disco
-        img_redimensionada.save(buffer_memoria, format='PNG') # Salva a imagem redimensionada no buffer
-        buffer_memoria.seek(0) # Volta ao início do "arquivo" em memória
+        buffer_memoria = io.BytesIO()
+        img_redimensionada.save(buffer_memoria, format='PNG')
+        buffer_memoria.seek(0)
 
-        return buffer_memoria # Retorna o buffer com a imagem gerada
+        return buffer_memoria
 
     except FileNotFoundError:
         raise Exception("Erro interno. Arquivo de imagem não ou do template da assinatura não foi encontrado.")
