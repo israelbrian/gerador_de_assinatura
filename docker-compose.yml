@@ -12,8 +12,6 @@ services:
   nginx:
     image: nginx:stable-alpine # Usa uma imagem oficial e leve do Nginx
     ports:
-      # Expõe a porta 80 do Nginx para a porta 80 do seu computador.
-      # Esta é a NOVA porta de entrada para toda a aplicação.
       - "80:80"
     volumes:
       # Monta seu arquivo de configuração personalizado dentro do contêiner Nginx.
