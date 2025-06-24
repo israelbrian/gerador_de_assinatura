@@ -4,7 +4,7 @@ const div_img = document.getElementById('div-img');
 const imgAssPadrao = document.getElementById('imgAssPadrao');
 const imgTitle = document.getElementById('imgTitle');
 
-const url = 'http://127.0.0.1/api'
+const url = '/api'
 let imgUrlBlob = null
 
 function downloadImage() {
