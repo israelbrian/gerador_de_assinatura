@@ -5,20 +5,22 @@ import os
 DIRETORIO_BASE = os.path.dirname(os.path.abspath(__file__))
 STATIC = os.path.join(DIRETORIO_BASE, 'static')
 IMG_ASS_PADRAO = os.path.join(STATIC, 'assinatura_padrao_ses.png') # Junta o diretorio base com a pasta static e o nome do arquivo
+
 FONTES = {
     'padrao': os.path.join(STATIC, 'arial.ttf'),
     'negrito': os.path.join(STATIC, 'ariblk.ttf'),
     'semicond': os.path.join(STATIC,'arialnb.ttf')
 }
 
-FONTES_PIL = {
-    'nome': ImageFont.truetype(FONTES['negrito'], 24),
-    'padraoGG': ImageFont.truetype(FONTES['padrao'], 24),
-    'padraoG': ImageFont.truetype(FONTES['padrao'], 22),
-    'orgao': ImageFont.truetype(FONTES['semicond'], 17),
-}
+# FONTES_PIL = {
+#     'nome': ImageFont.truetype(FONTES['negrito'], 24),
+#     'padraoGG': ImageFont.truetype(FONTES['padrao'], 24),
+#     'padraoG': ImageFont.truetype(FONTES['padrao'], 22),
+#     'orgao': ImageFont.truetype(FONTES['semicond'], 17)
+# }
 
 TAMANHO_FINAL = (500, 241)
+
 COORDS = {
     'nome': (55, 78),
     'cargo': (55, 134),
@@ -43,9 +45,16 @@ def gerar_assinatura(dados_usuario: dict) -> io.BytesIO:
     Parametros pré-definidos e estaticos: coordenadas, cores e fontes(declarados como const no inicio do código).
     Retorno: buffer_memoria com a imagem gerada em formato PNG como um objeto BytesIO em memória, sem salvar no disco.
     """
-    endereco = f'Cidade Administrativa, Prédio Minas, {dados_usuario['andar']} andar'
+    endereco = f"Cidade Administrativa, Prédio Minas, {dados_usuario['andar']} andar"
 
     try:
+
+        FONTES_PIL = {
+        'nome': ImageFont.truetype(FONTES['negrito'], 24),
+        'padraoGG': ImageFont.truetype(FONTES['padrao'], 24),
+        'padraoG': ImageFont.truetype(FONTES['padrao'], 22),
+        'orgao': ImageFont.truetype(FONTES['semicond'], 17)
+        }
         img = Image.open(IMG_ASS_PADRAO).convert("RGBA")
         desenho = ImageDraw.Draw(img)
 

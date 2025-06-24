@@ -1,0 +1,16 @@
+Dockerfile
+docker-compose.yml
+.git
+.gitignore
+.gitattributes
+node_modules
+npm-debug.log
+__pycache__
+*.pyc
+.venv
+venv
+.vscode/
+.idea/
+.DS_Store
+LICENSE
+README.md
