@@ -4,12 +4,12 @@ import os
 
 DIRETORIO_BASE = os.path.dirname(os.path.abspath(__file__))
 STATIC = os.path.join(DIRETORIO_BASE, 'static')
-IMG_ASS_PADRAO = os.path.join(STATIC, 'assinatura_padrao_ses.png') # Junta o diretorio base com a pasta static e o nome do arquivo
+IMG_ASS_PADRAO = os.path.join(STATIC, 'assinatura_padrao_ses.PNG') # Junta o diretorio base com a pasta static e o nome do arquivo
 
 FONTES = {
     'padrao': os.path.join(STATIC, 'arial.ttf'),
     'negrito': os.path.join(STATIC, 'ariblk.ttf'),
-    'semicond': os.path.join(STATIC,'arialnb.ttf')
+    'semicond': os.path.join(STATIC,'arialnb.TTF')
 }
 
 # FONTES_PIL = {
@@ -74,6 +74,6 @@ def gerar_assinatura(dados_usuario: dict) -> io.BytesIO:
         return buffer_memoria
 
     except FileNotFoundError:
-        raise Exception("Erro interno. Arquivo de imagem não ou do template da assinatura não foi encontrado.")
+        raise Exception("Erro interno. Arquivo de imagem ou do template da assinatura não foi encontrado.")
     except Exception as e:
         raise Exception(f"Ocorreu um erro inesperado durante a geraçãoda imagem: {e}")
