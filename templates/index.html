@@ -8,6 +8,10 @@
       href="{{ url_for('static', filename='css/output.css') }}"
       rel="stylesheet"
     />
+    <link
+      href="{{ url_for('static', filename='css/style.css') }}"
+      rel="stylesheet"
+    />
   </head>
   <body class="bg-gray-900 p-4 md:h-screen text-white">
 
@@ -26,7 +30,7 @@
               class="bg-gray-600 border-solid border-2 border-gray-500 rounded-md lg:pt-5"
             >
               <div class="p-3 mt-2">
-                <label class="text-5x1 font-medium text-white">Nome:</label>
+                <label class="text-5x1 font-medium text-white" for="nomeUsuario">Nome:</label>
                 <input
                   type="text"
                   id="nomeUsuario"
@@ -36,7 +40,7 @@
                 />
               </div>
               <div class="p-3">
-                <label class="text-4x1 font-medium text-white">Cargo:</label>
+                <label class="text-4x1 font-medium text-white" for="cargoUsuario">Cargo:</label>
                 <input
                   type="text"
                   id="cargoUsuario"
@@ -46,7 +50,7 @@
                 />
               </div>
               <div class="p-3">
-                <label class="text-4x1 font-medium text-white">Orgao:</label>
+                <label class="text-4x1 font-medium text-white" for="orgaoUsuario">Orgao:</label>
                 <input
                   type="text"
                   id="orgaoUsuario"
@@ -56,7 +60,7 @@
                 />
               </div>
               <div class="p-3">
-                <label class="text-4x1 font-medium text-white ml-2 mr-4"
+                <label class="text-4x1 font-medium text-white ml-2 mr-4" for="telFixoUsuario"
                   >Tel:</label
                 >
                 <input
@@ -68,7 +72,7 @@
                 />
               </div>
               <div class="p-3">
-                <label class="text-4x1 font-medium text-white"
+                <label class="text-4x1 font-medium text-white" for="emailUsuario"
                   >E-mail:</label
                 >
                 <input
@@ -80,7 +84,7 @@
                 />
               </div>
               <div class="p-3">
-                <label class="text-4x1 font-medium text-white">Andar:</label>
+                <label class="text-4x1 font-medium text-white" for="andarUsuario">Andar:</label>
                 <input
                   type="number"
                   id="andarUsuario"
@@ -92,7 +96,7 @@
               <div class="flex items-center justify-center">
                 <button
                   type="submit"
-                  class="bg-gray-900 text-white p-3 rounded-md my-4 hover:bg-neutral-800"
+                  class="bg-gray-900 text-white p-3 rounded-md my-4 hover:bg-slate-700"
                 >
                   Gerar assinatura
                 </button>
@@ -105,14 +109,20 @@
             <h3 id="imgTitle" class="text-center text-base lg:text-3xl p-7 lg:mt-2 uppercase font-light">
               Exemplo de assinatura
             </h3>
-            <div id="div-img" class="flex items-center justify-center lg:mt-2">
-              <img
-                src="../static/assinatura_exemplo_ses.PNG"
-                alt="img-assinatura"
-                id="imgAssPadrao"
-                class="w-full lg:w-10/12 lg:mb-3"
-              />
-            </div>
+              <div id="div-img" class="flex items-center justify-center lg:mt-2">
+                <img
+                  src="../static/assinatura_exemplo_ses.PNG"
+                  alt="img-assinatura"
+                  id="imgAssPadrao"
+                  class="w-full lg:w-10/12 lg:mb-3"
+                />
+              </div>
+            <button type="button" id="btnManual" class="bg-gray-900 text-white p-3 rounded-md my-4 hover:bg-slate-700 hidden">
+              <a  href="{{ url_for('static', filename='/manual_assinatura_outlook.pdf') }}"
+              download="Manual_Assinatura_Outlook.pdf">
+              Como usar?
+              </a> 
+            </button>
           </div>
         </div>
 
@@ -120,7 +130,7 @@
 
     <footer 
     class="text-center text-slate-400 text-base p-5 lg:mt-16 bottom-0 left-0 w-full font-extralight">
-      Desenvolvido por Israel Brian ©
+      <h4>Desenvolvido por Israel Brian ©</h4>
     </footer>
       
     <script src="{{ url_for('static', filename='js/script.js')}}"></script>
