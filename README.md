@@ -58,10 +58,13 @@ Finalizei as seguintes etapas de forma satisfatorias:
 Em andamento:
 - Configuração do docker-compose, .dockerignore e Dockerfile. ✅
 - Implementar WSGI. ✅
+- Gunicorn. ✅
 - Teste de deploy em um container docker. ✅
 
 Proximo passo 🎯:
+- Implementar o nginx.
 - Deploy em container Docker institucional.
+- Add um botão para "Add a assinatura no e-mail" onde será baixado o manual descrevendo o passo a passo. 
 
 Esqueleto do front end:
 
