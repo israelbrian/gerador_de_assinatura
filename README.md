@@ -57,11 +57,11 @@ Finalizei as seguintes etapas de forma satisfatorias:
 
 Em andamento:
 - Configuração do docker-compose, .dockerignore e Dockerfile. ✅
-- Implementar WSGI 
-- Deploy em um container docker.
+- Implementar WSGI. ✅
+- Teste de deploy em um container docker. ✅
 
 Proximo passo 🎯:
-- Concertar o erro 500.
+- Deploy em container Docker institucional.
 
 Esqueleto do front end:
 
