@@ -1,5 +1,4 @@
 # Dockerfile do backend
-
 FROM python:3.10-slim
 
 # Definir variáveis de ambiente para proxy (PEGUE OS VALORES CORRETOS COM SUA EQUIPE DE TI)
