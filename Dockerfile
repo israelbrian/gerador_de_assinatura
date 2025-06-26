@@ -21,7 +21,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Torna o seu entrypoint executável
-RUN chmod +x ./entrypoint.sh
+# RUN chmod +x ./entrypoint.sh
 
 # Expõe a porta que o Gunicorn vai usar internamente
 EXPOSE 5000
