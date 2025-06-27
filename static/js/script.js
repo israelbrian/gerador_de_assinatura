@@ -4,7 +4,7 @@ const div_img = document.getElementById('div-img');
 const imgAssPadrao = document.getElementById('imgAssPadrao');
 const imgTitle = document.getElementById('imgTitle');
 
-const url = 'http://127.0.0.1:5000/api'
+const url = '/api'
 let imgUrlBlob = null
 
 function downloadImage() {
@@ -23,6 +23,7 @@ function downloadImage() {
 }
 
 function mostrarImg(imgUrl) {
+    document.getElementById('btnManual').classList.remove('hidden');
     imgAssPadrao.src = imgUrl;
     imgAssPadrao.alt = 'assinatura_gerada';
     imgTitle.textContent = 'Assinatura gerada com sucesso!';
@@ -35,7 +36,7 @@ function mostrarImg(imgUrl) {
 
     const botaoDownload = document.createElement('button');
     botaoDownload.id = 'btnDownload';
-    botaoDownload.classList = 'bg-gray-900 text-white p-3 rounded-md my-4 hover:bg-neutral-800'
+    botaoDownload.classList = 'bg-gray-900 text-white p-3 rounded-md my-4 hover:bg-slate-700'
     botaoDownload.textContent = 'Baixar Assinatura';
     botaoDownload.addEventListener('click', downloadImage);
     divImg.appendChild(botaoDownload);

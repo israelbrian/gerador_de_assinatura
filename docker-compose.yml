@@ -1,8 +1,26 @@
-version: '3.8' 
-
+# docker-compose.yml
+version: '3.8'
 services:
-  
+  # Serviço do Backend (Flask + Gunicorn)
   gerador-assinatura:
-    build: .
+    build:
+      context: . # Usa o Dockerfile na pasta atual
+    # A porta 5000 não é mais exposta publicamente
+    volumes:
+      - .:/usr/src/app # Volume para desenvolvimento (opcional para produção)
+    # env_file:
+    #   - .env # Carrega variáveis de ambiente (como SECRET_KEY)
+
+  # Serviço do Nginx (Serve o Frontend e atua como Proxy)
+  nginx:
+    image: nginx:stable-alpine
     ports:
+      # A única porta exposta publicamente. Porta 80 do seu PC -> Porta 80 do Nginx
       - "8080:80" 
+    volumes:
+      # Monta seu arquivo de configuração do Nginx
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      # Monta seus arquivos estáticos para o Nginx servir
+      - ./static:/usr/share/nginx/html/static 
+    depends_on:
+      - gerador-assinatura # Garante que o backend inicie antes do Nginx

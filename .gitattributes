@@ -1,2 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+# Garante que scripts de shell sempre usem quebras de linha no estilo Unix (LF)
+*.sh text eol=lf
