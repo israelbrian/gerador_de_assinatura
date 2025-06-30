@@ -54,8 +54,6 @@ Finalizei as seguintes etapas de forma satisfatorias:
 - Estilizar o formulario com Tailwindcss. ✅ 
 - Criar um estilo mais atraente, versatil e robusto focando em (mobile first e responsividade em diversas resoluções). ✅ 
 - Remover os comentarios feitos durante o desenvolvimento da aplicação. ✅
-
-Em andamento:
 - Configuração do docker-compose, .dockerignore e Dockerfile. ✅
 - Implementar WSGI. ✅
 - Gunicorn. ✅
