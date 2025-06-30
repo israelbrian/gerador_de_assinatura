@@ -12,13 +12,6 @@ FONTES = {
     'semicond': os.path.join(STATIC,'arialnb.TTF')
 }
 
-# FONTES_PIL = {
-#     'nome': ImageFont.truetype(FONTES['negrito'], 24),
-#     'padraoGG': ImageFont.truetype(FONTES['padrao'], 24),
-#     'padraoG': ImageFont.truetype(FONTES['padrao'], 22),
-#     'orgao': ImageFont.truetype(FONTES['semicond'], 17)
-# }
-
 TAMANHO_FINAL = (500, 241)
 
 COORDS = {

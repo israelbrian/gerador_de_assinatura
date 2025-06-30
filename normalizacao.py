@@ -7,7 +7,7 @@ def normallizar_dados(dados_usuario):
             elif chave == 'orgao':
                 dados_usuario[chave] = valor.upper().replace('De','de').replace('Em','em')  
             elif chave == 'telefone_fixo':
-                if len(valor) == 10:  # Formato 0XXXXXXXXXX
+                if len(valor) == 10:
                     dados_usuario[chave] = valor[0:2] + ' ' + valor[2:6] + '-' + valor[6:10]
             else:
                 dados_usuario[chave] = valor.lower()
