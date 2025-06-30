@@ -38,6 +38,9 @@ def receber_dados():
         app.logger.error(f"Ocorreu um erro inesperado: {e}")
         return jsonify({"error": "Ocorreu um erro interno no servidor. Por favor, contate o suporte."}), 500
 
+
+
+
 # if __name__ == '__main__':
 #     app.run(debug=False)
 #     app.run(host='0.0.0.0', port=5000, debug=False)
