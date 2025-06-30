@@ -69,12 +69,13 @@ Colocar a aplicação online em uma maquina virtual institucional.
 Esqueleto do front end:
 
     ```
-    (Informações importantes sobre quais dados preencher e afins).
+    (Nome da aplicação / assessoria de tecnologia da informação).
         <Form>
           <dados a serem preenchidos>
             <button gerar imagem>
               <imagem é exibida na tela>
                 <o botão baixar imagem fica disponivel abaixo da imagem gerada.>
+                  <o botão "com usar" fica disponivel ao lado.>
     ```
 
              
