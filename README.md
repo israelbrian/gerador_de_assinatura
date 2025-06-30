@@ -74,6 +74,7 @@ Esqueleto do front end:
             <button gerar imagem>
               <imagem é exibida na tela>
                 <o botão baixar imagem fica disponivel abaixo da imagem gerada.>
+                  <o botão "com usar" fica disponivel ao lado.>
     ```
 
              
