@@ -65,6 +65,13 @@ Finalizei as seguintes etapas de forma satisfatorias:
 Proximo passo 🎯:
 Colocar a aplicação online em uma maquina virtual institucional.
 
+Refatoração 🎯:
+- O arquivo main.py deve só iniciar o projeto (utilizar o routes "blueprints" para separar a logica do projeto em outros arquivos. 
+- Estruturar melhor em pastas com o conceito monorepo e separando os arquivos do docker e afins (se possivel)
+- variáveis em ingles e camelcase
+- Estruturar melhor as logicas das pastas
+- Orientação a objetos criando classes para cada funções 
+- Definir só uma função para cada função (separar funções em arquivos diferentes)
 
 Esqueleto do front end:
 
