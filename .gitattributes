@@ -1,4 +1,31 @@
-# Auto detect text files and perform LF normalization
+# Força detecção de texto e normalização de final de linha (Windows/Linux/macOS)
 * text=auto
-# Garante que scripts de shell sempre usem quebras de linha no estilo Unix (LF)
+
+# Garante que arquivos de shell tenham quebras de linha Unix (LF)
 *.sh text eol=lf
+
+# Arquivos Python: normalização de texto
+*.py text eol=lf
+
+# HTML, CSS, JS e arquivos web: normalização
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.svg text eol=lf
+
+# Arquivos de config e Markdown
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.env text eol=lf
+*.gitignore text eol=lf
+*.dockerignore text eol=lf
+
+# Arquivos binários (não tentar normalizar)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ttf binary
+*.otf binary
+*.ico binary
