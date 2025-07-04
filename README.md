@@ -8,10 +8,10 @@ Receber as seguintes informações da assinatura (via form):
 ```
 Nome (obrigatório)
 Cargo (obrigatório)
-Orgão dentro da Secretaria	
+Orgão dentro da Secretaria (obrigatório)
 Telefone Fixo (obrigatório)
 Telefone Celular (opcional)	
-e-mail no Governo (obrigatório)
+e-mail institucional (obrigatório)
 andar(obrigatório)
 ```
 ------------------------
@@ -66,11 +66,11 @@ Proximo passo 🎯:
 Colocar a aplicação online em uma maquina virtual institucional.
 
 Refatoração 🎯:
-- O arquivo main.py deve só iniciar o projeto (utilizar o routes "blueprints" para separar a logica do projeto em outros arquivos. 
+- O arquivo main.py deve só iniciar o projeto (utilizar o routes "blueprints" para separar a lógica do projeto em outros arquivos). ✅
+- Variáveis em inglês e camelcase.
 - Estruturar melhor em pastas com o conceito monorepo e separando os arquivos do docker e afins (se possivel)
-- variáveis em ingles e camelcase
-- Estruturar melhor as logicas das pastas
-- Orientação a objetos criando classes para cada funções 
+- Estruturar melhor a lógica das pastas em geral.
+- Orientação a objetos criando classes para cada funções.
 - Definir só uma função para cada função (separar funções em arquivos diferentes)
 
 Esqueleto do front end:
