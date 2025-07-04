@@ -1,5 +1,5 @@
 # Manipulação dos dados recebidos (lowercase, upper, capitalize)
-def normallizar_dados(dados_usuario):
+def normallize_data(dados_usuario):
     for chave, valor in dados_usuario.items():
         if isinstance(valor, str):
             if chave == 'nome' or chave == 'cargo':
