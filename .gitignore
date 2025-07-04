@@ -1,12 +1,14 @@
-__pycache__
+__pycache__/
 *.pyc
 *.pyo
 venv/
 .env
 
-node_modules
+node_modules/
 
 .vscode/
 .idea/
 .DS_Store
 Thumbs.db
+
+*.log
