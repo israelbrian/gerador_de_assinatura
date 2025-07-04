@@ -29,16 +29,16 @@ CORES = {
     'laranja': (244, 148, 60)
 }
 
-def generator_signature(dados_usuario: dict) -> io.BytesIO:
+def generator_signature(userData: dict) -> io.BytesIO:
     """ 
     Função para gerar a assinatura institucional da SES-MG com os dados do usuário.
     Usa o template de imagem padrão e preenche com os dados fornecidos.
     Parâmetros:
-    dados_usuario (dict): Dicionário contendo os dados do usuário, como nome, cargo, órgão, telefone_fixo, email e andar.
+    userData (dict): Dicionário contendo os dados do usuário, como nome, cargo, órgão, telefone_fixo, email e andar.
     Parametros pré-definidos e estaticos: coordenadas, cores e fontes(declarados como const no inicio do código).
     Retorno: buffer_memoria com a imagem gerada em formato PNG como um objeto BytesIO em memória, sem salvar no disco.
     """
-    endereco = f"Cidade Administrativa, Prédio Minas, {dados_usuario['andar']} andar"
+    endereco = f"Cidade Administrativa, Prédio Minas, {userData['andar']} andar"
 
     try:
 
@@ -51,11 +51,11 @@ def generator_signature(dados_usuario: dict) -> io.BytesIO:
         img = Image.open(IMG_ASS_PADRAO).convert("RGBA")
         desenho = ImageDraw.Draw(img)
 
-        desenho.text((COORDS['nome']), dados_usuario.get('nome', ''), font=FONTES_PIL['nome'], fill=CORES['roxo'])
-        desenho.text((COORDS['cargo']), dados_usuario.get('cargo', ''), font=FONTES_PIL['padraoGG'], fill=CORES['roxo'])
-        desenho.text((COORDS['orgao']), dados_usuario.get('orgao', ''), font=FONTES_PIL['orgao'], fill=CORES['laranja'])
-        desenho.text((COORDS['telefone_fixo']), dados_usuario.get('telefone_fixo', ''), font=FONTES_PIL['padraoG'], fill=CORES['roxo'])
-        desenho.text((COORDS['email']), dados_usuario.get('email', ''), font=FONTES_PIL['padraoG'], fill=CORES['roxo_claro'])
+        desenho.text((COORDS['nome']), userData.get('nome', ''), font=FONTES_PIL['nome'], fill=CORES['roxo'])
+        desenho.text((COORDS['cargo']), userData.get('cargo', ''), font=FONTES_PIL['padraoGG'], fill=CORES['roxo'])
+        desenho.text((COORDS['orgao']), userData.get('orgao', ''), font=FONTES_PIL['orgao'], fill=CORES['laranja'])
+        desenho.text((COORDS['telefone_fixo']), userData.get('telefone_fixo', ''), font=FONTES_PIL['padraoG'], fill=CORES['roxo'])
+        desenho.text((COORDS['email']), userData.get('email', ''), font=FONTES_PIL['padraoG'], fill=CORES['roxo_claro'])
         desenho.text((COORDS['endereco']), endereco, font=FONTES_PIL['padraoG'], fill=CORES['roxo_claro'])
 
         img_redimensionada = img.resize(TAMANHO_FINAL, Image.Resampling.LANCZOS)

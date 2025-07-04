@@ -9,29 +9,29 @@ api_route = Blueprint('api_route', __name__)
 
 # 2. Define a rota da API usando o Blueprint.
 @api_route.route('/api', methods=['POST'])
-def receber_dados():
+def receiveData():
     """Recebe os dados do formulário, valida, normaliza e gera a assinatura."""
     try:
-        dados_usuario = request.get_json()
-        if dados_usuario is None:
+        userData = request.get_json()
+        if userData is None:
             return jsonify({"error": "Nenhum dado recebido"}), 400
 
-        is_valid, mensagem_erro = validate_data(dados_usuario)
-        if not is_valid:
-            return jsonify({"erro": mensagem_erro}), 400
+        isValid, mensageErro = validate_data(userData)
+        if not isValid:
+            return jsonify({"erro": mensageErro}), 400
 
     except Exception as e:
         return jsonify({"error": f"Erro ao processar os dados: {e}"}), 400
 
-    normallize_data(dados_usuario)
+    normallize_data(userData)
     
     try:
-        imagem_gerada = generator_signature(dados_usuario)
+        generatedImage = generator_signature(userData)
         return send_file(
-            imagem_gerada,
+            generatedImage,
             mimetype='image/png',
             as_attachment=True,
-            download_name=f"assinatura_{dados_usuario['nome']}.png"
+            download_name="assinatura.png"
         )
 
     except Exception as e:
