@@ -63,12 +63,13 @@ Finalizei as seguintes etapas de forma satisfatorias:
 - Deploy em container Docker institucional. ✅
 
 Proximo passo 🎯:
-Deixar a aplicação online em uma maquina virtual institucional.
+Colocar a aplicação online em uma maquina virtual institucional.
+
 
 Esqueleto do front end:
 
     ```
-    (Informações importantes sobre quais dados preencher e afins).
+    (Nome da aplicação / assessoria de tecnologia da informação).
         <Form>
           <dados a serem preenchidos>
             <button gerar imagem>

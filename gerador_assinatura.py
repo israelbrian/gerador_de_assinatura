@@ -4,7 +4,7 @@ import os
 
 DIRETORIO_BASE = os.path.dirname(os.path.abspath(__file__))
 STATIC = os.path.join(DIRETORIO_BASE, 'static')
-IMG_ASS_PADRAO = os.path.join(STATIC, 'assinatura_padrao_ses.PNG') # Junta o diretorio base com a pasta static e o nome do arquivo
+IMG_ASS_PADRAO = os.path.join(STATIC, 'assinatura_padrao_ses.PNG')
 
 FONTES = {
     'padrao': os.path.join(STATIC, 'arial.ttf'),
