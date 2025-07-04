@@ -29,7 +29,7 @@ CORES = {
     'laranja': (244, 148, 60)
 }
 
-def signature_generator(dados_usuario: dict) -> io.BytesIO:
+def generator_signature(dados_usuario: dict) -> io.BytesIO:
     """ 
     Função para gerar a assinatura institucional da SES-MG com os dados do usuário.
     Usa o template de imagem padrão e preenche com os dados fornecidos.

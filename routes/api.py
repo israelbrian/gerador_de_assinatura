@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify, send_file, current_app
 
 from data_validation import validate_data
 from normalize import normallize_data
-from signature_generator import signature_generator
+from signature_generator import generator_signature
 
 # 1. Cria o Blueprint para a API.
 api_route = Blueprint('api_route', __name__)
@@ -26,7 +26,7 @@ def receber_dados():
     normallize_data(dados_usuario)
     
     try:
-        imagem_gerada = signature_generator(dados_usuario)
+        imagem_gerada = generator_signature(dados_usuario)
         return send_file(
             imagem_gerada,
             mimetype='image/png',
