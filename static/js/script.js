@@ -1,6 +1,6 @@
 const submitForm = document.getElementById('submitForm');
+const divSignature = document.getElementById('divSignature');
 const divImg = document.getElementById('divImg');
-const div_img = document.getElementById('div-img');
 const imgAssPadrao = document.getElementById('imgAssPadrao');
 const imgTitle = document.getElementById('imgTitle');
 
@@ -15,9 +15,9 @@ function downloadImage() {
     const nomeUsuario = document.getElementById('nomeUsuario').value
     const nomeArquivo = `${nomeUsuario}.png`;
     linkImg.download = `${nomeArquivo}`;
-    divImg.appendChild(linkImg);
+    divSignature.appendChild(linkImg);
     linkImg.click();
-    divImg.removeChild(linkImg);
+    divSignature.removeChild(linkImg);
     URL.revokeObjectURL(linkImg)
     document.getElementById('submitForm').reset()
 }
@@ -27,7 +27,7 @@ function mostrarImg(imgUrl) {
     imgAssPadrao.src = imgUrl;
     imgAssPadrao.alt = 'assinatura_gerada';
     imgTitle.textContent = 'Assinatura gerada com sucesso!';
-    div_img.appendChild(imgAssPadrao)
+    divImg.appendChild(imgAssPadrao)
 
     const botaoAntigo = document.getElementById('btnDownload');
     if (botaoAntigo) {
@@ -39,7 +39,7 @@ function mostrarImg(imgUrl) {
     botaoDownload.classList = 'bg-gray-900 text-white p-3 rounded-md my-4 hover:bg-slate-700'
     botaoDownload.textContent = 'Baixar Assinatura';
     botaoDownload.addEventListener('click', downloadImage);
-    divImg.appendChild(botaoDownload);
+    divSignature.appendChild(botaoDownload);
 }
 
 submitForm.addEventListener('submit', async (e) => {
