@@ -2,15 +2,12 @@ from flask import Blueprint, request, jsonify, send_file, current_app
 
 from data_validation import validate_data
 from normalize import normallize_data
-from signature_generator import generator_signature
+from signature_generator import signatureGenerator
 
-# 1. Cria o Blueprint para a API.
 api_route = Blueprint('api_route', __name__)
 
-# 2. Define a rota da API usando o Blueprint.
 @api_route.route('/api', methods=['POST'])
 def receiveData():
-    """Recebe os dados do formulário, valida, normaliza e gera a assinatura."""
     try:
         userData = request.get_json()
         if userData is None:
@@ -26,7 +23,7 @@ def receiveData():
     normallize_data(userData)
     
     try:
-        generatedImage = generator_signature(userData)
+        generatedImage = signatureGenerator(userData)
         return send_file(
             generatedImage,
             mimetype='image/png',

@@ -4,67 +4,66 @@ import os
 
 DIRETORIO_BASE = os.path.dirname(os.path.abspath(__file__))
 STATIC = os.path.join(DIRETORIO_BASE, 'static')
-IMG_ASS_PADRAO = os.path.join(STATIC, 'assinatura_padrao_ses.PNG')
+SIGNATURE_DEFAULT = os.path.join(STATIC, 'default_signature_ses.PNG')
+FINAL_SIZE = (500, 241)
 
 FONTES = {
-    'padrao': os.path.join(STATIC, 'arial.ttf'),
+    'default': os.path.join(STATIC, 'arial.ttf'),
     'negrito': os.path.join(STATIC, 'ariblk.ttf'),
     'semicond': os.path.join(STATIC,'arialnb.TTF')
 }
 
-TAMANHO_FINAL = (500, 241)
-
 COORDS = {
-    'nome': (55, 78),
-    'cargo': (55, 134),
-    'orgao': (56, 168),
-    'telefone_fixo': (90, 286),
+    'name': (55, 78),
+    'jobTitle': (55, 134),
+    'department': (56, 168),
+    'phoneNumber': (90, 286),
     'email': (90, 325),
-    'endereco': (90, 370)
+    'adress': (90, 370)
 }
 
-CORES = {
-    'roxo': (131, 35, 112),
-    'roxo_claro': (137, 71, 118),
-    'laranja': (244, 148, 60)
+COLORS = {
+    'purple': (131, 35, 112),
+    'purpleLight': (137, 71, 118),
+    'orange': (244, 148, 60)
 }
 
-def generator_signature(userData: dict) -> io.BytesIO:
+def signatureGenerator(userData: dict) -> io.BytesIO:
     """ 
     Função para gerar a assinatura institucional da SES-MG com os dados do usuário.
     Usa o template de imagem padrão e preenche com os dados fornecidos.
     Parâmetros:
-    userData (dict): Dicionário contendo os dados do usuário, como nome, cargo, órgão, telefone_fixo, email e andar.
-    Parametros pré-definidos e estaticos: coordenadas, cores e fontes(declarados como const no inicio do código).
-    Retorno: buffer_memoria com a imagem gerada em formato PNG como um objeto BytesIO em memória, sem salvar no disco.
+    userData (dict): Dicionário contendo os dados do usuário, como name, jobTitle, órgão, phoneNumber, email e andar.
+    Parametros pré-definidos e estaticos: coordenadas, COLORS e fontes(declarados como const no inicio do código).
+    Retorno: bufferMemory com a imagem gerada em formato PNG como um objeto BytesIO em memória, sem salvar no disco.
     """
-    endereco = f"Cidade Administrativa, Prédio Minas, {userData['andar']} andar"
+    adress = f"Cidade Administrativa, Prédio Minas, {userData.get('floor', '')} andar"
 
     try:
 
         FONTES_PIL = {
-        'nome': ImageFont.truetype(FONTES['negrito'], 24),
-        'padraoGG': ImageFont.truetype(FONTES['padrao'], 24),
-        'padraoG': ImageFont.truetype(FONTES['padrao'], 22),
-        'orgao': ImageFont.truetype(FONTES['semicond'], 17)
+        'name': ImageFont.truetype(FONTES['negrito'], 24),
+        'defaultGG': ImageFont.truetype(FONTES['default'], 24),
+        'defaultG': ImageFont.truetype(FONTES['default'], 22),
+        'department': ImageFont.truetype(FONTES['semicond'], 17)
         }
-        img = Image.open(IMG_ASS_PADRAO).convert("RGBA")
+        img = Image.open(SIGNATURE_DEFAULT).convert("RGBA")
         desenho = ImageDraw.Draw(img)
 
-        desenho.text((COORDS['nome']), userData.get('nome', ''), font=FONTES_PIL['nome'], fill=CORES['roxo'])
-        desenho.text((COORDS['cargo']), userData.get('cargo', ''), font=FONTES_PIL['padraoGG'], fill=CORES['roxo'])
-        desenho.text((COORDS['orgao']), userData.get('orgao', ''), font=FONTES_PIL['orgao'], fill=CORES['laranja'])
-        desenho.text((COORDS['telefone_fixo']), userData.get('telefone_fixo', ''), font=FONTES_PIL['padraoG'], fill=CORES['roxo'])
-        desenho.text((COORDS['email']), userData.get('email', ''), font=FONTES_PIL['padraoG'], fill=CORES['roxo_claro'])
-        desenho.text((COORDS['endereco']), endereco, font=FONTES_PIL['padraoG'], fill=CORES['roxo_claro'])
+        desenho.text((COORDS['name']), userData.get('fullName', ''), font=FONTES_PIL['name'], fill=COLORS['purple'])
+        desenho.text((COORDS['jobTitle']), userData.get('jobTitle', ''), font=FONTES_PIL['defaultGG'], fill=COLORS['purple'])
+        desenho.text((COORDS['department']), userData.get('department', ''), font=FONTES_PIL['department'], fill=COLORS['orange'])
+        desenho.text((COORDS['phoneNumber']), userData.get('phoneNumber', ''), font=FONTES_PIL['defaultG'], fill=COLORS['purple'])
+        desenho.text((COORDS['email']), userData.get('email', ''), font=FONTES_PIL['defaultG'], fill=COLORS['purpleLight'])
+        desenho.text((COORDS['adress']), adress, font=FONTES_PIL['defaultG'], fill=COLORS['purpleLight'])
 
-        img_redimensionada = img.resize(TAMANHO_FINAL, Image.Resampling.LANCZOS)
+        imgResized = img.resize(FINAL_SIZE, Image.Resampling.LANCZOS)
 
-        buffer_memoria = io.BytesIO()
-        img_redimensionada.save(buffer_memoria, format='PNG')
-        buffer_memoria.seek(0)
+        bufferMemory = io.BytesIO()
+        imgResized.save(bufferMemory, format='PNG')
+        bufferMemory.seek(0)
 
-        return buffer_memoria
+        return bufferMemory
 
     except FileNotFoundError:
         raise Exception("Erro interno. Arquivo de imagem ou do template da assinatura não foi encontrado.")
