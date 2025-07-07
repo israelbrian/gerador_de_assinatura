@@ -99,4 +99,7 @@ npx tailwindcss -i ./src/input.css -o ./static/css/output.css --watch
 comando para fazer antes do deploy no docker:  
 npx tailwindcss -i ./src/input.css -o ./static/css/output.css --minify
 
+docker:
+docker compose up --build -d
+
 ```
