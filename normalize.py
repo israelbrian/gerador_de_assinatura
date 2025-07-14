@@ -2,8 +2,10 @@
 def normallize_data(userData):
     for key, value in userData.items():
         if isinstance(value, str):
-            if key == 'fullName' or key == 'jobTitle':
+            if key == 'fullName':
                 userData[key] = value.title().replace('De','de').replace('Da','da').replace('Das','das').replace('Do','do').replace('Dos','dos').replace('Em','em')  
+            elif key == 'jobTitle': 
+                userData[key] = value.title().replace('Da','da').replace('Das','das').replace('Do','do').replace('Dos','dos').replace('Em','em')              
             elif key == 'department':
                 userData[key] = value.upper()
             elif key == 'phoneNumber':
