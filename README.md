@@ -8,10 +8,10 @@ Receber as seguintes informações da assinatura (via form):
 ```
 Nome (obrigatório)
 Cargo (obrigatório)
-Orgão dentro da Secretaria	
+Orgão dentro da Secretaria (obrigatório)
 Telefone Fixo (obrigatório)
 Telefone Celular (opcional)	
-e-mail no Governo (obrigatório)
+e-mail institucional (obrigatório)
 andar(obrigatório)
 ```
 ------------------------
@@ -65,6 +65,14 @@ Finalizei as seguintes etapas de forma satisfatorias:
 Proximo passo 🎯:
 Colocar a aplicação online em uma maquina virtual institucional.
 
+Refatoração 🎯:
+- O arquivo main.py deve só iniciar o projeto (utilizar o routes "blueprints" para separar a lógica do projeto em outros arquivos). ✅
+- Variáveis em inglês e camelcase.
+- Estruturar melhor em pastas com o conceito monorepo e separando os arquivos do docker e afins (se possivel)
+- Adicionar regex
+- Estruturar melhor a lógica das pastas e arqvuios em geral.
+- Orientação a objetos criando classes para cada funções no back e no front.
+- Cada função deve ter uma ação (separar funções em arquivos diferentes)
 
 Esqueleto do front end:
 
@@ -90,5 +98,8 @@ comando para iniciar a compilação do tailwindcss:
 npx tailwindcss -i ./src/input.css -o ./static/css/output.css --watch  
 comando para fazer antes do deploy no docker:  
 npx tailwindcss -i ./src/input.css -o ./static/css/output.css --minify
+
+docker:
+docker compose up --build -d
 
 ```

@@ -12,7 +12,7 @@
       href="{{ url_for('static', filename='css/style.css') }}"
       rel="stylesheet"
     />
-    <link href="{{ url_for('static', filename='icons/icon-1.PNG') }}" 
+    <link href="{{ url_for('static', filename='icons/icon-signature.PNG') }}" 
      rel="shortcut icon" type="image/x-icon" />  
 
   </head>
@@ -33,64 +33,64 @@
               class="bg-gray-600 border-solid border-2 border-gray-500 rounded-md lg:pt-5"
             >
               <div class="p-3 mt-2">
-                <label class="text-5x1 font-medium text-white" for="nomeUsuario">Nome:</label>
+                <label class="text-5x1 font-medium text-white" for="fullName">Nome:</label>
                 <input
                   type="text"
-                  id="nomeUsuario"
+                  id="fullName"
                   placeholder="Preencha o seu nome completo."
                   required
                   class="w-11/12 grow py-1.5 pr-3 pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 rounded-md"
                 />
               </div>
               <div class="p-3">
-                <label class="text-4x1 font-medium text-white" for="cargoUsuario">Cargo:</label>
+                <label class="text-4x1 font-medium text-white" for="jobTitle">Cargo:</label>
                 <input
                   type="text"
-                  id="cargoUsuario"
+                  id="jobTitle"
                   placeholder="Preencha o seu cargo. Ex: MGS, Estagio"
                   required
                   class="w-11/12 grow py-1.5 pr-3 pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 rounded-md"
                 />
               </div>
               <div class="p-3">
-                <label class="text-4x1 font-medium text-white" for="orgaoUsuario">Orgao:</label>
+                <label class="text-4x1 font-medium text-white" for="department">Orgao:</label>
                 <input
                   type="text"
-                  id="orgaoUsuario"
+                  id="department"
                   placeholder="Preencha o orgao. Ex: ASSESSORIA ..."
                   required
                   class="w-11/12 grow py-1.5 pr-3 pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 rounded-md"
                 />
               </div>
               <div class="p-3">
-                <label class="text-4x1 font-medium text-white ml-2 mr-4" for="telFixoUsuario"
+                <label class="text-4x1 font-medium text-white ml-2 mr-4" for="phoneNumber"
                   >Tel:</label
                 >
                 <input
                   type="number"
-                  id="telFixoUsuario"
+                  id="phoneNumber"
                   placeholder="telefone fixo da SES. Ex: 31 3106-0000"
                   required
                   class="w-11/12 grow py-1.5 pr-3 pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 rounded-md"
                 />
               </div>
               <div class="p-3">
-                <label class="text-4x1 font-medium text-white" for="emailUsuario"
+                <label class="text-4x1 font-medium text-white" for="email"
                   >E-mail:</label
                 >
                 <input
                   type="email"
-                  id="emailUsuario"
+                  id="email"
                   placeholder="Preencha o seu email institucional. Ex: nononon@saude.mg.gov.br"
                   required
                   class="w-11/12 grow py-1.5 pr-3 pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 rounded-md"
                 />
               </div>
               <div class="p-3">
-                <label class="text-4x1 font-medium text-white" for="andarUsuario">Andar:</label>
+                <label class="text-4x1 font-medium text-white" for="floor">Andar:</label>
                 <input
                   type="number"
-                  id="andarUsuario"
+                  id="floor"
                   placeholder="Preencha o andar onde reside. Ex: 13°"
                   required
                   class="w-11/12 grow py-1.5 pr-3 pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 rounded-md"
@@ -108,20 +108,20 @@
             </form>
           </div>
           
-          <div id="divImg" class="div-img bg-gray-600 p-6 rounded-br-md text-center md:w-1/2 lg:p-2 md:border-solid md:border-l-2 md:border-gray-500">
+          <div id="divSignature" class="bg-gray-600 p-6 rounded-br-md text-center md:w-1/2 lg:p-2 md:border-solid md:border-l-2 md:border-gray-500">
             <h3 id="imgTitle" class="text-center text-base lg:text-3xl p-7 lg:mt-2 uppercase font-light">
               Exemplo de assinatura
             </h3>
-              <div id="div-img" class="flex items-center justify-center lg:mt-2">
+              <div id="divImg" class="flex items-center justify-center lg:mt-2">
                 <img
-                  src="{{ url_for('static', filename='assinatura_exemplo_ses.PNG') }}"
+                  src="{{ url_for('static', filename='images/signature_example_ses.PNG') }}"
                   alt="img-assinatura"
-                  id="imgAssPadrao"
+                  id="signatureDefault"
                   class="w-full lg:w-10/12 lg:mb-3"
                 />
               </div>
             <button type="button" id="btnManual" class="bg-gray-900 text-white p-3 rounded-md my-4 hover:bg-slate-700 hidden">
-              <a  href="{{ url_for('static', filename='/manual_assinatura_outlook.pdf') }}"
+              <a  href="{{ url_for('static', filename='manual/manual_assinatura_outlook.pdf') }}"
               download="Manual Assinatura Outlook.pdf">
               Como usar?
               </a> 

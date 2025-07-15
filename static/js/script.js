@@ -1,7 +1,7 @@
 const submitForm = document.getElementById('submitForm');
+const divSignature = document.getElementById('divSignature');
 const divImg = document.getElementById('divImg');
-const div_img = document.getElementById('div-img');
-const imgAssPadrao = document.getElementById('imgAssPadrao');
+const signatureDefault = document.getElementById('signatureDefault');
 const imgTitle = document.getElementById('imgTitle');
 
 const url = '/api'
@@ -12,58 +12,58 @@ function downloadImage() {
 
     const linkImg = document.createElement('a');
     linkImg.href = imgUrlBlob
-    const nomeUsuario = document.getElementById('nomeUsuario').value
-    const nomeArquivo = `${nomeUsuario}.png`;
-    linkImg.download = `${nomeArquivo}`;
-    divImg.appendChild(linkImg);
+    const userName = document.getElementById('fullName').value
+    const fileName = `${userName}.png`;
+    linkImg.download = `${fileName}`;
+    divSignature.appendChild(linkImg);
     linkImg.click();
-    divImg.removeChild(linkImg);
+    divSignature.removeChild(linkImg);
     URL.revokeObjectURL(linkImg)
     document.getElementById('submitForm').reset()
 }
 
-function mostrarImg(imgUrl) {
+function showImage(imgUrl) {
     document.getElementById('btnManual').classList.remove('hidden');
-    imgAssPadrao.src = imgUrl;
-    imgAssPadrao.alt = 'assinatura_gerada';
+    signatureDefault.src = imgUrl;
+    signatureDefault.alt = 'assinatura_gerada';
     imgTitle.textContent = 'Assinatura gerada com sucesso!';
-    div_img.appendChild(imgAssPadrao)
+    divImg.appendChild(signatureDefault)
 
-    const botaoAntigo = document.getElementById('btnDownload');
-    if (botaoAntigo) {
-        botaoAntigo.remove();
+    const oldButton = document.getElementById('buttonDownload');
+    if (oldButton) {
+        oldButton.remove();
     }
 
-    const botaoDownload = document.createElement('button');
-    botaoDownload.id = 'btnDownload';
-    botaoDownload.classList = 'bg-gray-900 text-white p-3 rounded-md my-4 hover:bg-slate-700'
-    botaoDownload.textContent = 'Baixar Assinatura';
-    botaoDownload.addEventListener('click', downloadImage);
-    divImg.appendChild(botaoDownload);
+    const buttonDownload = document.createElement('button');
+    buttonDownload.id = 'buttonDownload';
+    buttonDownload.classList = 'bg-gray-900 text-white p-3 rounded-md my-4 hover:bg-slate-700'
+    buttonDownload.textContent = 'Baixar Assinatura';
+    buttonDownload.addEventListener('click', downloadImage);
+    divSignature.appendChild(buttonDownload);
 }
 
 submitForm.addEventListener('submit', async (e) => {
     e.preventDefault()
-const dadosUsuario = {
-    'nome': document.getElementById('nomeUsuario').value, 
-    'cargo': document.getElementById('cargoUsuario').value,
-    'telefone_fixo': document.getElementById('telFixoUsuario').value,
-    'email': document.getElementById('emailUsuario').value,
-    'orgao': document.getElementById('orgaoUsuario').value,
-    'andar': document.getElementById('andarUsuario').value
+const userData = {
+    'fullName': document.getElementById('fullName').value, 
+    'jobTitle': document.getElementById('jobTitle').value,
+    'phoneNumber': document.getElementById('phoneNumber').value,
+    'email': document.getElementById('email').value,
+    'department': document.getElementById('department').value,
+    'floor': document.getElementById('floor').value
 }
 
     try {
         const response = await fetch(url, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(dadosUsuario)
+            body: JSON.stringify(userData)
         })
 
         const blob = await response.blob();
         const imgUrl = URL.createObjectURL(blob);
         imgUrlBlob = URL.createObjectURL(blob);
-        mostrarImg(imgUrl); 
+        showImage(imgUrl); 
         
     } catch (error) {
         console.error('Erro ao enviar os dados:', error);
