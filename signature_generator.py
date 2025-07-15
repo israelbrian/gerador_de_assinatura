@@ -6,6 +6,7 @@ DIRETORIO_BASE = os.path.dirname(os.path.abspath(__file__))
 STATIC = os.path.join(DIRETORIO_BASE, 'static')
 SIGNATURE_DEFAULT = os.path.join(STATIC, 'images/default_signature_ses.PNG')
 FINAL_SIZE = (500, 241)
+MAX_SIZE = 37
 
 FONTS = {
     'default': os.path.join(STATIC, 'fonts/arial.ttf'),
@@ -43,6 +44,7 @@ def signatureGenerator(userData: dict) -> io.BytesIO:
 
         FONTS_PIL = {
         'name': ImageFont.truetype(FONTS['negrito'], 24),
+        'nameSmall': ImageFont.truetype(FONTS['negrito'], 22),
         'defaultGG': ImageFont.truetype(FONTS['default'], 24),
         'defaultG': ImageFont.truetype(FONTS['default'], 22),
         'department': ImageFont.truetype(FONTS['semicond'], 17)
@@ -50,7 +52,10 @@ def signatureGenerator(userData: dict) -> io.BytesIO:
         img = Image.open(SIGNATURE_DEFAULT).convert("RGBA")
         desenho = ImageDraw.Draw(img)
 
-        desenho.text((COORDS['name']), userData.get('fullName', ''), font=FONTS_PIL['name'], fill=COLORS['purple'])
+        if len(userData.get('fullName', '')) > MAX_SIZE:
+            desenho.text((COORDS['name']), userData.get('fullName', ''), font=FONTS_PIL['nameSmall'], fill=COLORS['purple'])
+        else:       
+            desenho.text((COORDS['name']), userData.get('fullName', ''), font=FONTS_PIL['name'], fill=COLORS['purple'])
         desenho.text((COORDS['jobTitle']), userData.get('jobTitle', ''), font=FONTS_PIL['defaultGG'], fill=COLORS['purple'])
         desenho.text((COORDS['department']), userData.get('department', ''), font=FONTS_PIL['department'], fill=COLORS['orange'])
         desenho.text((COORDS['phoneNumber']), userData.get('phoneNumber', ''), font=FONTS_PIL['defaultG'], fill=COLORS['purple'])
