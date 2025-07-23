@@ -67,9 +67,10 @@ Colocar a aplicação online em uma maquina virtual institucional.
 
 Refatoração 🎯:
 - O arquivo main.py deve só iniciar o projeto (utilizar o routes "blueprints" para separar a lógica do projeto em outros arquivos). ✅
-- Variáveis em inglês e camelcase. ✅
+- Variáveis em inglês e camelcase.
+- Estruturar melhor em pastas com o conceito monorepo e separando os arquivos do docker e afins (se possivel)
 - Adicionar regex
-- Estruturar melhor a lógica das pastas e arquivos em geral.
+- Estruturar melhor a lógica das pastas e arqvuios em geral.
 - Orientação a objetos criando classes para cada funções no back e no front.
 - Cada função deve ter uma ação (separar funções em arquivos diferentes)
 
