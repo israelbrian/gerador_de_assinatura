@@ -38,7 +38,7 @@ def signatureGenerator(userData: dict) -> io.BytesIO:
     Parametros pré-definidos e estaticos: coordenadas, COLORS e FONTS(declarados como const no inicio do código).
     Retorno: bufferMemory com a imagem gerada em formato PNG como um objeto BytesIO em memória, sem salvar no disco.
     """
-    adress = f"Cidade Administrativa, Prédio Minas, {userData.get('floor', '')}° andar"
+    adress = f"Cidade Administrativa, Prédio Minas, {userData.get('floor', '')} andar"
 
     try:
 
