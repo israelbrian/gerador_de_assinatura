@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify, send_file, current_app
 
 from data_validation import validateData
-from normalize import normalizeData
+from normalizer import normalizeData
 from signature_generator import signatureGenerator
 
 api_route = Blueprint('api_route', __name__)
