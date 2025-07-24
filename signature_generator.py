@@ -30,14 +30,6 @@ COLORS = {
 }
 
 def signatureGenerator(normalizedUserData: dict) -> io.BytesIO:
-    """ 
-    Função para gerar a assinatura institucional da SES-MG com os dados do usuário.
-    Usa o template de imagem padrão e preenche com os dados fornecidos.
-    Parâmetros:
-    normalizedUserData (dict): Dicionário contendo os dados do usuário, como name, jobTitle, órgão, phoneNumber, email e andar.
-    Parametros pré-definidos e estaticos: coordenadas, COLORS e FONTS(declarados como const no inicio do código).
-    Retorno: bufferMemory com a imagem gerada em formato PNG como um objeto BytesIO em memória, sem salvar no disco.
-    """
     adress = f"Cidade Administrativa, Prédio Minas, {normalizedUserData.get('floor', '')}° andar"
 
     try:
