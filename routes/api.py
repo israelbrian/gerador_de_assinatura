@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify, send_file, current_app
 
-from data_validation import validate_data
-from normalize import normallize_data
+from data_validation import validateData
+from normalize import normalizeData
 from signature_generator import signatureGenerator
 
 api_route = Blueprint('api_route', __name__)
@@ -13,17 +13,17 @@ def receiveData():
         if userData is None:
             return jsonify({"error": "Nenhum dado recebido"}), 400
 
-        isValid, mensageErro = validate_data(userData)
+        isValid, mensageErro = validateData(userData)
         if not isValid:
             return jsonify({"erro": mensageErro}), 400
 
     except Exception as e:
         return jsonify({"error": f"Erro ao processar os dados: {e}"}), 400
 
-    normallize_data(userData)
+    normalizedUserData = normalizeData(userData)
     
     try:
-        generatedImage = signatureGenerator(userData)
+        generatedImage = signatureGenerator(normalizedUserData)
         return send_file(
             generatedImage,
             mimetype='image/png',

@@ -29,16 +29,16 @@ COLORS = {
     'orange': (244, 148, 60)
 }
 
-def signatureGenerator(userData: dict) -> io.BytesIO:
+def signatureGenerator(normalizedUserData: dict) -> io.BytesIO:
     """ 
     Função para gerar a assinatura institucional da SES-MG com os dados do usuário.
     Usa o template de imagem padrão e preenche com os dados fornecidos.
     Parâmetros:
-    userData (dict): Dicionário contendo os dados do usuário, como name, jobTitle, órgão, phoneNumber, email e andar.
+    normalizedUserData (dict): Dicionário contendo os dados do usuário, como name, jobTitle, órgão, phoneNumber, email e andar.
     Parametros pré-definidos e estaticos: coordenadas, COLORS e FONTS(declarados como const no inicio do código).
     Retorno: bufferMemory com a imagem gerada em formato PNG como um objeto BytesIO em memória, sem salvar no disco.
     """
-    adress = f"Cidade Administrativa, Prédio Minas, {userData.get('floor', '')}° andar"
+    adress = f"Cidade Administrativa, Prédio Minas, {normalizedUserData.get('floor', '')}° andar"
 
     try:
 
@@ -52,14 +52,14 @@ def signatureGenerator(userData: dict) -> io.BytesIO:
         img = Image.open(SIGNATURE_DEFAULT).convert("RGBA")
         desenho = ImageDraw.Draw(img)
 
-        if len(userData.get('fullName', '')) > MAX_SIZE:
-            desenho.text((COORDS['name']), userData.get('fullName', ''), font=FONTS_PIL['nameSmall'], fill=COLORS['purple'])
+        if len(normalizedUserData.get('fullName', '')) > MAX_SIZE:
+            desenho.text((COORDS['name']), normalizedUserData.get('fullName', ''), font=FONTS_PIL['nameSmall'], fill=COLORS['purple'])
         else:       
-            desenho.text((COORDS['name']), userData.get('fullName', ''), font=FONTS_PIL['name'], fill=COLORS['purple'])
-        desenho.text((COORDS['jobTitle']), userData.get('jobTitle', ''), font=FONTS_PIL['defaultGG'], fill=COLORS['purple'])
-        desenho.text((COORDS['department']), userData.get('department', ''), font=FONTS_PIL['department'], fill=COLORS['orange'])
-        desenho.text((COORDS['phoneNumber']), userData.get('phoneNumber', ''), font=FONTS_PIL['defaultG'], fill=COLORS['purple'])
-        desenho.text((COORDS['email']), userData.get('email', ''), font=FONTS_PIL['defaultG'], fill=COLORS['purpleLight'])
+            desenho.text((COORDS['name']), normalizedUserData.get('fullName', ''), font=FONTS_PIL['name'], fill=COLORS['purple'])
+        desenho.text((COORDS['jobTitle']), normalizedUserData.get('jobTitle', ''), font=FONTS_PIL['defaultGG'], fill=COLORS['purple'])
+        desenho.text((COORDS['department']), normalizedUserData.get('department', ''), font=FONTS_PIL['department'], fill=COLORS['orange'])
+        desenho.text((COORDS['phoneNumber']), normalizedUserData.get('phoneNumber', ''), font=FONTS_PIL['defaultG'], fill=COLORS['purple'])
+        desenho.text((COORDS['email']), normalizedUserData.get('email', ''), font=FONTS_PIL['defaultG'], fill=COLORS['purpleLight'])
         desenho.text((COORDS['adress']), adress, font=FONTS_PIL['defaultG'], fill=COLORS['purpleLight'])
 
         imgResized = img.resize(FINAL_SIZE, Image.Resampling.LANCZOS)

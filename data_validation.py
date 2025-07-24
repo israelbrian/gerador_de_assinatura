@@ -1,5 +1,5 @@
 # Função para validar os dados do usuário
-def validate_data(userData):
+def validateData(userData):
     mandatoryKeys = ['fullName', 'jobTitle', 'department', 'phoneNumber', 'email', 'floor']
     for key in mandatoryKeys:
         if key not in userData:
