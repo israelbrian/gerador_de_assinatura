@@ -38,7 +38,10 @@ assinatura_app/
 
 Todas as funções do app foram migradas para arquivos externos melhorando a legibilidade do projeto como um todo e de sua logica.
     
-App.py -> focado em receber os dados do user e chamar as funções 'validar_dados' (valida se os campos foram preenchido de forma correta), 'normalizar_dados'(manipula o texto para uppercase, lowercase e etc) e 'gerar_assinatura' (onde é feita a lógica de 'impressão' dos dados do usuario na 'assinatura_pradrao_ses')
+App.py -> Focado apenas em inicializar o projeto e ser um orquestrador das rotas.
+
+Api.py - > Focado em receber os dados do user e chamar as funções 'validateData' (valida se os campos foram preenchido de forma correta), 'normalizeData'(manipula o texto para uppercase, lowercase e etc) e 'signatureGenerator' (onde é feita a lógica de 'impressão' dos dados do usuario na 'assinatura_pradrao_ses')
+
 Após executar as funções a rota /api devolve a imagem gerada para o front (onde há outras manipulações de como a imagem será tratada).
     
 Foi feita a declaração de consts para os valores estaticos foi adicionado o os.path para evitar erros de diretorio em diferentes maquinas (exemplo container docker)
@@ -67,9 +70,10 @@ Colocar a aplicação online em uma maquina virtual institucional.
 
 Refatoração 🎯:
 - O arquivo main.py deve só iniciar o projeto (utilizar o routes "blueprints" para separar a lógica do projeto em outros arquivos). ✅
+- Estruturar melhor a lógica das pastas e arquivos em geral.✅
 - Variáveis em inglês e camelcase. ✅
-- Adicionar regex na validações do back/front.
-- Estruturar melhor a lógica das pastas e arquivos em geral.
+- Adicionar regex na validações do back-end. ✅ 
+- Adicionar regex na validações do front-end. 
 - Orientação a objetos criando classes para cada funções no back e no front.
 - Cada função deve ter uma ação (separar funções em arquivos diferentes).
 
