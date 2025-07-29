@@ -67,9 +67,10 @@
                   >Tel:</label
                 >
                 <input
-                  type="number"
+                  type="text"
+                  inputmode="tel"
                   id="phoneNumber"
-                  placeholder="telefone fixo da SES. Ex: 31 3106-0000"
+                  placeholder="(XX) XXXX-XXXX"
                   required
                   class="w-11/12 grow py-1.5 pr-3 pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 rounded-md"
                 />
@@ -136,7 +137,6 @@
       <!-- <h4>Desenvolvido por Israel Brian ©</h4> -->
     </footer>
       
-    <script src="{{ url_for('static', filename='js/script.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/validator.js')}}"></script>
+    <script type="module" src="{{ url_for('static', filename='js/script.js')}}"></script>
   </body>
 </html>

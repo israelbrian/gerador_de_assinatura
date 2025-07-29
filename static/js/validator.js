@@ -1,21 +1,19 @@
 const inputPhoneNumber = document.getElementById('phoneNumber');
 
 inputPhoneNumber.addEventListener('input', (event) =>  {
-    const target = event.target;
+  const target = event.target;
 
-    let value = target.value.replace(/\D/g, '');
+  // 1. Remove tudo que não for dígito.
+  let value = target.value.replace(/\D/g, '');
 
-    value = value.substring(0, 10);
+  // 2. Limita o tamanho para 10 dígitos (telefone fixo com DDD).
+  value = value.substring(0, 10);
 
-    if (value.length > 9) {
-        value = value.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
-    } else if (value.length > 6) {
-        value = value.replace(/^(\d{2})(\d{4})(\d{0,4})$/, '($1) $2-$3')
-    } else if (value.length > 2) {
-        value = value.replace(/^(\d{2})(\d{*})$/, '($1) $2')
-    } else if (value.length > 0) {
-        value = value.replace(/^(\d*)$/, '($1)')
-    }
+  // 3. Aplica a máscara de forma progressiva.
+  value = value.replace(/^(\d{2})(\d)/, '($1) $2'); // Adiciona parênteses e espaço após o DDD.
+  value = value.replace(/(\d{4})(\d)/, '$1-$2');   // Adiciona o hífen.
 
-    target.value = value;
-})
+  // 4. Atualiza o valor do campo.
+  target.value = value;
+});
+
