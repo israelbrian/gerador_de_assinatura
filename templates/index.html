@@ -37,7 +37,8 @@
                 <input
                   type="text"
                   id="fullName"
-                  placeholder="Preencha o seu nome completo."
+                  name="fullName"
+                  placeholder="Preencha o seu nome completo"
                   required
                   class="w-11/12 grow py-1.5 pr-3 pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 rounded-md"
                 />
@@ -47,7 +48,8 @@
                 <input
                   type="text"
                   id="jobTitle"
-                  placeholder="Preencha o seu cargo. Ex: MGS, Estagio"
+                  name="jobTitle"
+                  placeholder="Ex: Assessor(a), Gestor(a), Coordenador(a), Estágio"
                   required
                   class="w-11/12 grow py-1.5 pr-3 pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 rounded-md"
                 />
@@ -57,7 +59,8 @@
                 <input
                   type="text"
                   id="department"
-                  placeholder="Preencha o orgao. Ex: ASSESSORIA ..."
+                  name="department"
+                  placeholder="Ex: ASSESSORIA, GABINETE, DIRETORIA, SUPERINTENDÊNCIA"
                   required
                   class="w-11/12 grow py-1.5 pr-3 pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 rounded-md"
                 />
@@ -70,7 +73,8 @@
                   type="text"
                   inputmode="tel"
                   id="phoneNumber"
-                  placeholder="(XX) XXXX-XXXX"
+                  name="phoneNumber"
+                  placeholder="Ex: (31) 0000-0000"
                   required
                   class="w-11/12 grow py-1.5 pr-3 pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 rounded-md"
                 />
@@ -82,7 +86,8 @@
                 <input
                   type="email"
                   id="email"
-                  placeholder="Preencha o seu email institucional. Ex: nononon@saude.mg.gov.br"
+                  name="email"
+                  placeholder="Ex: nome.sobrenome@saude.mg.gov.br"
                   required
                   class="w-11/12 grow py-1.5 pr-3 pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 rounded-md"
                 />
@@ -92,7 +97,8 @@
                 <input
                   type="number"
                   id="floor"
-                  placeholder="Preencha o andar onde reside. Ex: 13°"
+                  name="floor"
+                  placeholder="Ex: 10°, 12°, 13°"
                   required
                   class="w-11/12 grow py-1.5 pr-3 pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 rounded-md"
                 />
@@ -137,7 +143,7 @@
       <!-- <h4>Desenvolvido por Israel Brian ©</h4> -->
     </footer>
       
-    <script src="{{ url_for('static', filename='js/script.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/validator.js')}}"></script>
+    <script type="module" src="{{ url_for('static', filename='js/script.js')}}"></script>
+    <!-- <script src="{{ url_for('static', filename='js/validator.js')}}"></script> -->
   </body>
 </html>
