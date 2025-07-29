@@ -1,4 +1,3 @@
-# Função para validar os dados do usuário
 def validateData(userData):
     mandatoryKeys = ['fullName', 'jobTitle', 'department', 'phoneNumber', 'email', 'floor']
     for key in mandatoryKeys:
