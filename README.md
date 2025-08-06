@@ -19,9 +19,55 @@ andar(obrigatório)
 ## Estrutura do projeto:
 
 ```
+|
+|-- app.py                        // Arquivo principal do Flask, apenas com as rotas.
+|-- data_validation.py            // Validar os dados recebidos do formulário.
+|-- normalizer.py                 // Formatar os dados recebidos do formulário.
+|-- signature_generator.py        // Gerar a imagem da assinatura.
+|-- routes.py                     # Define todas as rotas (endpoints) da API.
+|-- requirements.txt              # Dependências Python (Flask, Pillow, etc.).
+
+|-- .dockerignore                 // Arquivos a serem ignorados ao construir a imagem Docker.
+|-- docker-compose.yml            // Orquestra os serviços da aplicação (ex: app e nginx).
+|-- Dockerfile                    // Instruções para construir a imagem Docker da aplicação Python.
+|-- entrypoint.sh                 // Script executado quando o container inicia.
+|-- package.json                  // Dependências e scripts do Node.js (para o front-end).
+|-- package-lock.json             // Versões exatas das dependências do Node.js.
+|-- .gitattributes                // Atributos de arquivos para o Git.
+|-- .gitignore                    // Arquivos e pastas a serem ignorados pelo Git.
+|-- README.md                     // Documentação do projeto (este arquivo).
+|
+|-- nginx/                        // Arquivos de configuração do Nginx (usado como reverse proxy).
+|
+|-- src/                          // Pasta contendo os arquivos de front-end.
+|   |-- static/
+|   |   |-- css/                  // Pasta para folhas de estilo CSS.
+|   |       |-- output.css
+|   |       └── style.css
+|   |   |-- fonts/                // Contém as fontes usadas para gerar a assinatura.
+|   |   |   |-- arial.ttf
+|   |   |   |-- arialnb.ttf
+|   |   |   └── ariblk.ttf
+|   |   |-- icons/                // Ícones usados na interface.
+|   |   |   └── icon-signature.png
+|   |   |-- images/               // Imagens gerais da interface.
+|   |   |   |-- default_signature.png
+|   |   |   └── signature_example_ses.png
+|   |   └── js/                   // Arquivos JavaScript para a lógica do client-side.
+|   |       |-- apiService.js     // Lida com as chamadas para a API do back-end.
+|   |       |-- formatter.js      // Funções para formatar dados no front-end em tempo real.
+|   |       |-- script.js         // Script principal de que orquestra os outros scripts e armazena os dados do form.
+|   |       |-- uiHandler.js      // Manipula os elementos da interface (UI).
+|   |       └── validator.js      // Valida os dados no formulário antes do envio utilizando regex.
+|   |
+|   └── templates/
+|       └── index.html            // Arquivo HTML principal da aplicação.
+|
+└── venv/                         // Pasta do ambiente virtual do Python (geralmente ignorada).
+
 assinatura_app/
-|-- app.py                  // Arquivo principal do Flask, apenas com as rotas.
-|-- validacao_dados.py      // Função para validar os dados recebidos
+|-- app.py                  
+|-- validacao_dados.py      
 |-- normalizacao.py         // Função para normalizar os dados(lowercase, upper, captalize)
 |-- gerador_assinatura.py   // Função para gerar a imagem nos padrões pré-determinados
 ├── static/
