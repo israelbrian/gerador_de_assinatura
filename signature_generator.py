@@ -4,7 +4,7 @@ import os
 
 DIRETORIO_BASE = os.path.dirname(os.path.abspath(__file__))
 STATIC = os.path.join(DIRETORIO_BASE, 'static')
-SIGNATURE_DEFAULT = os.path.join(STATIC, 'images/new_default_signature_ses.PNG')
+SIGNATURE_DEFAULT = os.path.join(STATIC, 'images/new_default_signature_ses.png')
 FINAL_SIZE = (500, 241)
 MAX_SIZE = 37
 
