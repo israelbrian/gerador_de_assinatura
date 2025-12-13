@@ -39,7 +39,7 @@ jobs:
     needs: build_and_test
     runs-on: ubuntu-latest
     # Este job só roda em push para a branch 'main'
-    if: github.ref == 'refs/heads/main'
+    # if: github.ref == 'refs/heads/main'
 
     steps:
       - uses: actions/checkout@v3
