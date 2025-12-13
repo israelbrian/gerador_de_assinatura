@@ -12,138 +12,191 @@
       href="{{ url_for('static', filename='css/style.css') }}"
       rel="stylesheet"
     />
-    <link href="{{ url_for('static', filename='icons/icon-signature.png') }}" 
-     rel="shortcut icon" type="image/x-icon" />  
-
+    <link
+      href="{{ url_for('static', filename='icons/icon-signature.png') }}"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
   </head>
   <body class="bg-gray-900 p-4 md:h-screen text-white">
-
-    <main class="flex flex-col md:justify-between mt-10 lg:w-5/6 mx-auto top-auto rounded-lg">
-      <header class="bg-gray-700 p-6 rounded-t-md text-center md:w-full lg:w-full">
-        <h1 class="text-center text-base lg:text-5xl font-bold my-5 uppercase">Gerador de assinatura</h1>
-        <h2 class="text-center text-xs lg:text-3xl font-thin my-3 uppercase">Assessoria da tecnologia da informação</h2>
+    <main
+      class="flex flex-col md:justify-between mt-10 lg:w-5/6 mx-auto top-auto rounded-lg"
+    >
+      <header
+        class="bg-gray-700 p-6 rounded-t-md text-center md:w-full lg:w-full"
+      >
+        <h1 class="text-center text-base lg:text-5xl font-bold my-5 uppercase">
+          Gerador de assinatura
+        </h1>
+        <h2 class="text-center text-xs lg:text-3xl font-thin my-3 uppercase">
+          Assessoria da tecnologia da informação
+        </h2>
       </header>
 
-        <div class="flex flex-col md:flex-row md:justify-between border-solid border-2 border-gray-500 rounded-b-xl">
-          <div class="divForm bg-gray-600 p-6 md:rounded-bl-md lg:p-10 md:w-1/2">
-            <form
-              action="/submit"
-              method="POST"
-              id="submitForm"
-              class="bg-gray-600 border-solid border-2 border-gray-500 rounded-md lg:pt-5"
-            >
-              <div class="p-3 mt-2">
-                <label class="text-5x1 font-medium text-white" for="fullName">Nome:</label>
-                <input
-                  type="text"
-                  id="fullName"
-                  name="fullName"
-                  placeholder="Preencha o seu nome completo"
-                  required
-                  class="w-11/12 grow py-1.5 pr-3 pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 rounded-md"
-                />
-              </div>
-              <div class="p-3">
-                <label class="text-4x1 font-medium text-white" for="jobTitle">Cargo:</label>
-                <input
-                  type="text"
-                  id="jobTitle"
-                  name="jobTitle"
-                  placeholder="Ex: Assessor(a), Gestor(a), Coordenador(a), Estágio"
-                  required
-                  class="w-11/12 grow py-1.5 pr-3 pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 rounded-md"
-                />
-              </div>
-              <div class="p-3">
-                <label class="text-4x1 font-medium text-white mr-1" for="department">Setor:</label>
-                <input
-                  type="text"
-                  id="department"
-                  name="department"
-                  placeholder="Ex: ASSESSORIA, GABINETE, DIRETORIA, SUPERINTENDÊNCIA"
-                  required
-                  class="w-11/12 grow py-1.5 pr-3 pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 rounded-md"
-                />
-              </div>
-              <div class="p-3">
-                <label class="text-4x1 font-medium text-white ml-2 mr-4" for="phoneNumber"
-                  >Tel:</label
-                >
-                <input
-                  type="text"
-                  inputmode="tel"
-                  id="phoneNumber"
-                  name="phoneNumber"
-                  placeholder="Ex: (31) 0000-0000"
-                  required
-                  class="w-11/12 grow py-1.5 pr-3 pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 rounded-md"
-                />
-              </div>
-              <div class="p-3">
-                <label class="text-4x1 font-medium text-white" for="email"
-                  >E-mail:</label
-                >
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="Ex: nome.sobrenome@saude.mg.gov.br"
-                  required
-                  class="w-11/12 grow py-1.5 pr-3 pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 rounded-md"
-                />
-              </div>
-              <div class="p-3">
-                <label class="text-4x1 font-medium text-white" for="floor">Andar:</label>
-                <input
-                  type="number"
-                  id="floor"
-                  name="floor"
-                  placeholder="Ex: 10°, 12°, 13°"
-                  required
-                  class="w-11/12 grow py-1.5 pr-3 pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 rounded-md"
-                />
-              </div>
-              <div class="flex items-center justify-center">
-                <button
-                  type="submit"
-                  class="bg-gray-900 text-white p-3 rounded-md my-4 hover:bg-slate-700"
-                >
-                  Gerar assinatura
-                </button>
-              </div>
-          
-            </form>
-          </div>
-          
-          <div id="divSignature" class="bg-gray-600 p-6 rounded-br-md text-center md:w-1/2 lg:p-2 md:border-solid md:border-l-2 md:border-gray-500">
-            <h3 id="imgTitle" class="text-center text-base lg:text-3xl p-7 lg:mt-2 uppercase font-light">
-              Exemplo de assinatura
-            </h3>
-              <div id="divImg" class="flex items-center justify-center lg:mt-2">
-                <img
-                  src="{{ url_for('static', filename='images/signature_example_ses.PNG') }}"
-                  alt="img-assinatura"
-                  id="signatureDefault"
-                  class="w-full lg:w-10/12 lg:mb-3"
-                />
-              </div>
-            <button type="button" id="btnManual" class="bg-gray-900 text-white p-3 rounded-md my-4 hover:bg-slate-700 hidden">
-              <a  href="{{ url_for('static', filename='manual/manual_assinatura_outlook.pdf') }}"
-              download="Manual Assinatura Outlook.pdf">
-              Como usar?
-              </a> 
-            </button>
-          </div>
+      <div
+        class="flex flex-col md:flex-row md:justify-between border-solid border-2 border-gray-500 rounded-b-xl"
+      >
+        <div class="divForm bg-gray-600 p-6 md:rounded-bl-md lg:p-10 md:w-1/2">
+          <form
+            action="/submit"
+            method="POST"
+            id="submitForm"
+            class="bg-gray-600 border-solid border-2 border-gray-500 rounded-md lg:pt-5"
+          >
+            <div class="p-3 mt-2">
+              <label class="text-5x1 font-medium text-white" for="fullName"
+                >Nome:</label
+              >
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                placeholder="Preencha o seu nome completo"
+                required
+                class="w-11/12 grow py-1.5 pr-3 pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 rounded-md"
+              />
+            </div>
+            <div class="p-3">
+              <label class="text-4x1 font-medium text-white" for="jobTitle"
+                >Cargo:</label
+              >
+              <input
+                type="text"
+                id="jobTitle"
+                name="jobTitle"
+                placeholder="Ex: Assessor(a), Gestor(a), Coordenador(a), Estágio"
+                required
+                class="w-11/12 grow py-1.5 pr-3 pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 rounded-md"
+              />
+            </div>
+            <div class="p-3">
+              <label
+                class="text-4x1 font-medium text-white mr-1"
+                for="department"
+                >Setor:</label
+              >
+              <input
+                type="text"
+                id="department"
+                name="department"
+                placeholder="Ex: ASSESSORIA, GABINETE, DIRETORIA, SUPERINTENDÊNCIA"
+                required
+                class="w-11/12 grow py-1.5 pr-3 pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 rounded-md"
+              />
+            </div>
+            <div class="p-3">
+              <label
+                class="font-medium text-white 2xl:ml-3 md:ml-0"
+                for="phoneNumber"
+              >
+                <span class="2xl:inline md:hidden mr-2">Tel:</span>
+                <span class="2xl:hidden md:block">Telefone e Celular:</span>
+              </label>
+              <input
+                type="text"
+                inputmode="tel"
+                id="phoneNumber"
+                name="phoneNumber"
+                placeholder="Ex: (31) 3916-0031"
+                required
+                class="2xl:w-2/5 sm:w-2/5 2xl:ml-1 grow py-1.5 pr-3 pl-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 rounded-md"
+              />
+              <!-- <label class="text-4x1 font-medium text-white ml-3 mr-4" for="phoneNumber"
+                  >Cel:</label
+                > -->
+              <input
+                type="text"
+                inputmode="tel"
+                id="telephoneNumber"
+                name="telephoneNumber"
+                placeholder="Ex: (31) 97654-3466 (Opcional)"
+                class="2xl:w-3/6 sm:w-3/6 grow py-1.5 ml-1 pr-3 pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 rounded-md"
+              />
+            </div>
+            <div class="p-3">
+              <label class="text-4x1 font-medium text-white" for="email"
+                >E-mail:</label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Ex: nome.sobrenome@saude.mg.gov.br"
+                required
+                class="w-11/12 grow py-1.5 pr-3 pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 rounded-md"
+              />
+            </div>
+            <div class="p-3">
+              <label
+                class="text-4x1 ms-2 mr-2 font-medium text-white"
+                for="adress"
+                >End:</label
+              >
+              <input
+                type="text"
+                id="adress"
+                name="adress"
+                placeholder="Ex: Cidade Administrativa, Prédio Minas, 1º andar"
+                value="Cidade Administrativa, Prédio Minas, 1º andar"
+                required
+                class="w-11/12 grow py-1.5 pr-3 pl-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 rounded-md"
+              />
+            </div>
+            <div class="flex items-center justify-center">
+              <button
+                type="submit"
+                class="bg-gray-900 text-white p-3 rounded-md my-4 hover:bg-slate-700"
+              >
+                Gerar assinatura
+              </button>
+            </div>
+          </form>
         </div>
 
+        <div
+          id="divSignature"
+          class="bg-gray-600 p-6 rounded-br-md text-center md:w-1/2 lg:p-2 md:border-solid md:border-l-2 md:border-gray-500"
+        >
+          <h3
+            id="imgTitle"
+            class="text-center text-base lg:text-3xl p-7 lg:mt-2 uppercase font-light"
+          >
+            Exemplo de assinatura
+          </h3>
+          <div id="divImg" class="flex items-center justify-center lg:mt-2">
+            <img
+              src="{{ url_for('static', filename='images/new_signature_example_ses.jpg') }}"
+              alt="img-assinatura"
+              id="signatureDefault"
+              class="w-full lg:w-10/12 lg:mb-3"
+            />
+          </div>
+          <button
+            type="button"
+            id="btnManual"
+            class="bg-gray-900 text-white p-3 rounded-md my-4 hover:bg-slate-700 hidden"
+          >
+            <a
+              href="{{ url_for('static', filename='manual/manual_assinatura_outlook.pdf') }}"
+              download="Manual Assinatura Outlook.pdf"
+            >
+              Como usar?
+            </a>
+          </button>
+        </div>
+      </div>
     </main>
 
-    <footer 
-    class="text-center text-slate-400 text-base p-5 lg:mt-16 bottom-0 left-0 w-full font-extralight">
+    <footer
+      class="text-center text-slate-400 text-base p-5 lg:mt-16 bottom-0 left-0 w-full font-extralight"
+    >
       <!-- <h4>Desenvolvido por Israel Brian ©</h4> -->
     </footer>
-      
-    <script type="module" src="{{ url_for('static', filename='js/script.js')}}"></script>
+
+    <script
+      type="module"
+      src="{{ url_for('static', filename='js/script.js')}}"
+    ></script>
     <!-- <script src="{{ url_for('static', filename='js/validator.js')}}"></script> -->
   </body>
 </html>

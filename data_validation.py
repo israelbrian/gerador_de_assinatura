@@ -1,15 +1,16 @@
 import re
 
 def validateData(userData):
-    mandatoryKeys = ['fullName', 'jobTitle', 'department', 'phoneNumber', 'email', 'floor']
+    mandatoryKeys = ['fullName', 'jobTitle', 'department', 'phoneNumber', 'email', 'adress']
     
     patterns = {
         'fullName': r'^[A-Za-zÀ-ú\s]{5,}$',
         'jobTitle': r'^.{5,}$',
-        'phoneNumber': r'^\d{10}$', 
+        'phoneNumber': r'^\d{10}$',
+        'telephoneNumber': r'^\d{11}$',
         'email': r'^[a-zA-Z.]+@saude\.mg\.gov\.br$',
         'department': r'^.{5,}$',
-        'floor': r'^.{2}$'
+        'adress': r'^[A-Za-zÀ-ú\s0-9.,º°\-\/\\\\]{5,}$'
     }
 
     for key in mandatoryKeys:
@@ -19,7 +20,10 @@ def validateData(userData):
     for key, pattern in patterns.items():
         value = str(userData.get(key, ''))
 
-        if key == 'phoneNumber':
+        if key == 'telephoneNumber' and not value.strip():
+            continue
+
+        if key in ['phoneNumber', 'telephoneNumber']:
             value = re.sub(r'\D', '', value)
 
         if not re.fullmatch(pattern, value):

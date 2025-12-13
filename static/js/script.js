@@ -2,11 +2,14 @@ import { sendSignatureRequest } from "./apiService.js"
 import { showGeneratedImage } from "./uiHandler.js"
 import { validateForm } from "./validator.js"
 import {formatPhone} from "./formatter.js"
+import {formatTelephone} from "./formatter.js"
 
 const submitForm = document.getElementById('submitForm');
 const phoneInput = document.getElementById('phoneNumber');
+const telephoneInput = document.getElementById('telephoneNumber');
 
 phoneInput.addEventListener('input', formatPhone);
+telephoneInput.addEventListener('input', formatTelephone);
 
 submitForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -21,9 +24,10 @@ submitForm.addEventListener('submit', async (e) => {
         'fullName': document.getElementById('fullName').value, 
         'jobTitle': document.getElementById('jobTitle').value,
         'phoneNumber': document.getElementById('phoneNumber').value,
+        'telephoneNumber': document.getElementById('telephoneNumber').value,
         'email': document.getElementById('email').value,
         'department': document.getElementById('department').value,
-        'floor': document.getElementById('floor').value
+        'adress': document.getElementById('adress').value
     }
 
     try {
