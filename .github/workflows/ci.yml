@@ -8,38 +8,49 @@ on:
     branches: ["main", "develop"]
 
 jobs:
-  build_and_test:
+  build_and_test: # Este job agora valida e testa ambos, backend e frontend
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Baixa o código do repositório
+      - name: 1. Baixar o código do repositório
       - uses: actions/checkout@v3
 
-      # 2. Configura o Python
+      - name: 2. Configurar Python 3.10
       - name: Set up Python 3.10
         uses: actions/setup-python@v3
         with:
           python-version: "3.10"
 
-      # 3. Instala dependências
-      - name: Install dependencies
+      - name: 3. Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20" # Usar uma versão LTS
+          cache: "npm"
+
+      - name: 4. Instalar dependências Python
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          pip install flake8 # Ferramenta de linting (análise estática)
+          pip install -r requirements.txt
 
-      # 4. Roda verificação de sintaxe e estilo (Linting)
-      - name: Lint with flake8
-        run: |
-          # para o build se houver erros de sintaxe ou nomes indefinidos
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+      - name: 5. Instalar dependências Node.js
+        run: npm install
+
+      - name: 6. Rodar Linter do Backend (Flake8)
+        run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+
+      - name: 7. Rodar Linter do Frontend (ESLint)
+        run: npm run lint
+
+      - name: 8. Rodar Testes Unitários do Backend (Pytest)
+        run: pytest
+
+      - name: 9. Rodar Testes Unitários do Frontend (Jest)
+        run: npm test
 
   deploy:
-    # Precisa que o job 'build' termine com sucesso
     needs: build_and_test
     runs-on: ubuntu-latest
-    # Este job só roda em push para a branch 'main'
-    # if: github.ref == 'refs/heads/main'
+    # if: github.ref == 'refs/heads/main' # Deploy automático apenas para a branch 'main'
 
     steps:
       - uses: actions/checkout@v3
