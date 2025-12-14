@@ -41,7 +41,7 @@ jobs:
         run: npm run lint
 
       - name: 8. Rodar Testes Unitários do Backend (Pytest)
-        run: pytest
+        run: python -m pytest
 
       - name: 9. Rodar Testes Unitários do Frontend (Jest)
         run: npm test
