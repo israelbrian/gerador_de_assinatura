@@ -6,7 +6,7 @@ const patterns = {
   // email: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
   email: /^[a-zA-Z.]+@saude\.mg\.gov\.br$/,
   department: /^.{5,}$/,
-  adress: /^[A-Za-z0-9.,\-\sÀ-ú°-º\/\\\\]{5,}$/,
+  adress: /^[A-Za-z0-9.,\-\sÀ-ú°-º/\\\\]{5,}$/,
 };
 
 function handleInputError(input, message) {

@@ -35,5 +35,6 @@ submitForm.addEventListener('submit', async (e) => {
         showGeneratedImage(imageBlob);
     } catch (error) {
         // nenhuma ação necessaria
+        console.log(error)
     }
 })
