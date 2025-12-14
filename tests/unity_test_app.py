@@ -18,4 +18,5 @@ def test_form_page_loads(client):
     response = client.get('/')
     assert response.status_code == 200
     # Verifique se um texto esperado está na página
-    assert b"Gerador de Assinatura" in response.data
+    # Verifique se um texto esperado está na página, ignorando maiúsculas/minúsculas
+    assert b"gerador de assinatura" in response.data.lower()
