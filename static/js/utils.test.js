@@ -1,4 +1,4 @@
-const capitalize = require("./utils");
+import capitalize from "./utils.js";
 
 describe("capitalize", () => {
   test("deve capitalizar a primeira letra de uma string minúscula", () => {

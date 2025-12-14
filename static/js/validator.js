@@ -31,7 +31,7 @@ export function validateForm() {
     const pattern = patterns[input.id];
 
     // Se o campo for opcional (telephoneNumber) e estiver vazio, pula a validação.
-    if (input.id === 'telephoneNumber' && input.value.trim() === '') {
+    if (input.id === "telephoneNumber" && input.value.trim() === "") {
       return;
     }
     if (pattern && !pattern.test(input.value)) {
